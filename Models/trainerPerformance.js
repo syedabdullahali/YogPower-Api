@@ -2,13 +2,15 @@ let mongoose = require('mongoose')
 
 let trainerPerformance  = new mongoose.Schema({
 name:String,
-empId:String,
-department:String,	
-designation:String,	
-punctuality:String,
-productivity:String,	
-response:String,	
-additionalComments:String,
+trainerId:String,
+department:String,
+designation:String,
+punctualityAttendance:String,
+renewals:String,
+training:String,
+feedBACK:String,
+Behaviour:String,
+overallfeedback:String,
 }, { timestamps: true })
 
 module.exports =   mongoose.model('trainerPerformance ', trainerPerformance );
