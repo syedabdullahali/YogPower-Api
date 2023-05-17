@@ -3,7 +3,7 @@ let mongoose = require('mongoose')
 let employeePerformance  = new mongoose.Schema({
 name:String,
 empId:String,
-EmployeeId:String,  
+employeeId:String,  
 department:String,	
 designation:String,	
 punctuality:String,
