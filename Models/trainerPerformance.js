@@ -1,6 +1,6 @@
 let mongoose = require('mongoose')
 
-let employeePerformance  = new mongoose.Schema({
+let trainerPerformance  = new mongoose.Schema({
 name:String,
 empId:String,
 department:String,	
@@ -11,6 +11,6 @@ response:String,
 additionalComments:String,
 }, { timestamps: true })
 
-module.exports =   mongoose.model('employeePerformance ', employeePerformance );
+module.exports =   mongoose.model('trainerPerformance ', trainerPerformance );
 
 

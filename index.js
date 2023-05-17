@@ -185,7 +185,7 @@ app.use('/empJoining',userValidate,require('./Routes/empJoining'))
 app.use('/emplDocument',userValidate,require('./Routes/emplDocument'))
 app.use('/trainerSalarySlip',userValidate,require('./Routes/trainerSalarySlip'))
 app.use('/employeePerformance',userValidate,require('./Routes/employeePerformance'))
-
+app.use('/trainerPerformance',userValidate,require('./Routes/trainerPerformance'))
 
 
 //admin router
