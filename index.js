@@ -184,6 +184,8 @@ app.use('/jobProfile',userValidate,require('./Routes/jobProfile'))
 app.use('/empJoining',userValidate,require('./Routes/empJoining'))
 app.use('/emplDocument',userValidate,require('./Routes/emplDocument'))
 app.use('/trainerSalarySlip',userValidate,require('./Routes/trainerSalarySlip'))
+app.use('/empPerformance',userValidate,require('./Routes/empPerformance'))
+
 
 //admin router
 const adminRoute=require('./Routes/shift-time')
