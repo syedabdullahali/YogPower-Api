@@ -4,6 +4,7 @@ let trainerPerformance  = new mongoose.Schema({
 username:String,  
 name:String,
 trainerId:String,
+empId:String,  
 department:String,
 designation:String,
 punctuality:String,
