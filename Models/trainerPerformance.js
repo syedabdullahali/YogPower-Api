@@ -1,6 +1,7 @@
 let mongoose = require('mongoose')
 
 let trainerPerformance  = new mongoose.Schema({
+username:String,  
 name:String,
 trainerId:String,
 department:String,
