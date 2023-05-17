@@ -1,49 +1,53 @@
-let mongoose = require('mongoose')
+const express = require('express')
+const router = express.Router()
+//modelName
+const empPerformance = require('../Models/empPerformance')
 
-let empPerformance = new mongoose.Schema({
-    username: String,
-    image: String,
-    FullName: String,
-    EmailAddress: String,
-    CountryCode: Number,
-    ContactNumber: Number,
-    whatsappNumber: Number,
-    Gender: String,
-    DateofBirth: Date,
-    Age:String,
-    address: String,
-    Area: String,
-    city: String,
-    resume: String,
-    EmployeeCategory: String,
-    PinCode: Number,
-    State: String,
-    PayoutType: String,
-    Grade: String,
-    loginAccess: Boolean,
-    Anniversary: Date,
-    JobDesignation: String,
-    Department: String,
-    Salary: Number,
-    AdminRights: String,
-    joiningDate: Date,
-    EmployeeID: String,
-    AttendanceID: String,
-    AccountNo: Number,
-    IFSC: String,
-    PANCardNumber: String,
-    AadharNumber: Number,
-    PANCard: String,
-    AadharCard: String,
-    Comment: String,
-    selected: String,
-    status:Boolean,
-    OfferLetter: String,
-    AppoinmentLetter:String,
-    Indexion: String,
-    trainerStatus:Boolean
-}, { timestamps: true })
+router.get('/all', async function (req, res) {
+    try {
+        const response = await empPerformance.find()
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+router.post('/create', async (req, res) => {
+    try {
+        const temp = await new empPerformance(req.body)
+        const response = await temp.save();
+        console.log(response);
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+});
 
-const empPerformance = mongoose.model('empPerformance', empPerformance);
+router.get('/:id', async function (req, res) {
+    try {
+        const response = await empPerformance.findById({ _id: req.params.id })
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
 
-module.exports =  empPerformance
+router.post('/update/:id', async (req, res) => {
+    try {
+        const response = await empPerformance.findByIdAndUpdate(req.params.id, req.body);
+        return res.status(200).json(response)
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
+router.delete('/delete/:id', async (req, res) => {
+    try {
+        const response = await empPerformance.findByIdAndDelete(req.params.id);
+        return res.status(200).json(response)
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
+module.exports = router
+
