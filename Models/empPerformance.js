@@ -31,17 +31,6 @@ let empPerformance = new mongoose.Schema({
     AttendanceID: String,
     AccountNo: Number,
     IFSC: String,
-    PANCardNumber: String,
-    AadharNumber: Number,
-    PANCard: String,
-    AadharCard: String,
-    Comment: String,
-    selected: String,
-    status:Boolean,
-    OfferLetter: String,
-    AppoinmentLetter:String,
-    Indexion: String,
-    trainerStatus:Boolean
 }, { timestamps: true })
 
 const empPerformance = mongoose.model('empPerformance', empPerformance);
