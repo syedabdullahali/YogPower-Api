@@ -24,24 +24,27 @@ router.post('/mail',async (req,res)=>{
   // send mail with defined transport object
 console.log(req.body)
 
-  let info = await transporter.sendMail({
+  let infoMail = await transporter.sendMail({
     from:'syedabdullahali380@gmail.com', // sender address
     to: req.body.client,
     subject: req.body.subject,
     text: req.body.message,
 
-    html: "<b>Hello world?</b>", // html body
   });
 
+if(req.body.client){
+    transporter.sendMail(infoMail,async (error,info)=>{
+        if(error){
+           res.sendStatus(500)
+          return  res.status(500).json({ error: error })
+        }else if(info.accepted){
+          res.sendStatus(200)
+          return  res.status(200).json(req.body)
+        }
+        transporter.close();
+      })
+}
 
-  transporter.sendMail(info,async (error,info)=>{
-
-    if(error){
-        console.log(error)
-    }else{
-        console.log("email sent" +info.response)
-    }
-  })
 //   console.log("Message sent: %s", info.messageId);
 //   // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 //   res.json(info)
