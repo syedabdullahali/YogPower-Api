@@ -16,6 +16,7 @@ router.post('/email', async (req, res) => {
             to: req.body.client,
             subject: req.body.subject,
             text: require.body.message,
+            
         };
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {

@@ -187,7 +187,7 @@ app.use('/trainerSalarySlip',userValidate,require('./Routes/trainerSalarySlip'))
 app.use('/employeePerformance',userValidate,require('./Routes/employeePerformance'))
 app.use('/trainerPerformance',userValidate,require('./Routes/trainerPerformance'))
 app.use('/leaveSetUpMaster',userValidate,require('./Routes/leaveSetUpMaster'))
-
+app.use('/sendMultipalMail',userValidate,require('./Routes/sendMultiPalMail'))
 
 
 //admin router
