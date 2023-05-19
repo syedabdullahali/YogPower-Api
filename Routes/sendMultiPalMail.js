@@ -1,17 +1,15 @@
+
 const express =   require('express')
 const router = express.Router()
 
 const nodemailer = require('nodemailer')
 
 
-router.get('/all',async (req,res)=>{
-res.send('I am a server')
-})
-
-
 router.post('/mail',async (req,res)=>{
     // let testAccount = await nodemailer.createTestAccount();
 
+
+try{
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     service:'gmail',
@@ -22,11 +20,24 @@ router.post('/mail',async (req,res)=>{
   });
 
   // send mail with defined transport object
-console.log(req.body)
+console.log(req.body.client.split(','))
 
+
+
+let emailSent = false;
+
+// Function to send the email
+async function sendEmail() {
+  // Check if the email has already been sent
+  if (emailSent) {
+    console.log('Email has already been sent.');
+    return;
+  }
+
+  // Define the email options
   let infoMail = await transporter.sendMail({
     from:'syedabdullahali380@gmail.com', // sender address
-    to: req.body.client,
+    to: req.body.client.split(','),
     subject: req.body.subject,
     text: req.body.message,
 
@@ -34,15 +45,26 @@ console.log(req.body)
 
 if(req.body.client){
     transporter.sendMail(infoMail,async (error,info)=>{
+        console.log("hello")
         if(error){
           return  res.status(500).json({ error: error })
         }else if(info.accepted){
+        emailSent = true; 
           return  res.status(200).json(req.body)
         }
         transporter.close();
       })
 }
+}
 
+// Call the sendEmail function when needed
+sendEmail();
+
+
+
+}catch(error){
+    return  res.status(500).json({ error: error })
+}
 //   console.log("Message sent: %s", info.messageId);
 //   // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 //   res.json(info)
