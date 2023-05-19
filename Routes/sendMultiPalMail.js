@@ -35,10 +35,8 @@ console.log(req.body)
 if(req.body.client){
     transporter.sendMail(infoMail,async (error,info)=>{
         if(error){
-           res.sendStatus(500)
           return  res.status(500).json({ error: error })
         }else if(info.accepted){
-          res.sendStatus(200)
           return  res.status(200).json(req.body)
         }
         transporter.close();
