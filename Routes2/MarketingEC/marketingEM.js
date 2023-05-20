@@ -34,6 +34,18 @@ router.get('/all', async function (req, res) {
              client:[],
              enquiry:[],
              prospects:[],
+            selectInput:[
+               {label:'All Enquiry',value:'*'},
+               {label:'Appointment',value:'Appointment'},
+               {label:'Trial',value:'Trial'},
+               {label:'ColdEnquires',value:'ColdEnquires'},
+               {label:'prospects',value:'*'},
+               {label:'All Client',value:'*'},    
+               {label:'Active Client',value:'active'},
+               {label:'Reneval Client',value:'reneval'},
+               {label:'Renewed Client',value:'renewed'},
+               {label:'Left Client',value:'leftClient'},                
+            ]
      }
       response.forEach((el)=>{
           let obj = {
