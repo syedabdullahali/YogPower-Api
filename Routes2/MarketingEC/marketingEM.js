@@ -35,16 +35,16 @@ router.get('/all', async function (req, res) {
              enquiry:[],
              prospects:[],
             selectInput:[
-               {label:'All Enquiry',value:'*'},
-               {label:'Appointment',value:'Appointment'},
-               {label:'Trial',value:'Trial'},
-               {label:'ColdEnquires',value:'ColdEnquires'},
-               {label:'prospects',value:'*'},
-               {label:'All Client',value:'*'},    
-               {label:'Active Client',value:'active'},
-               {label:'Reneval Client',value:'reneval'},
-               {label:'Renewed Client',value:'renewed'},
-               {label:'Left Client',value:'leftClient'},                
+               {label:'All Enquiry',value:{parent:'enquiry',child:'no'}},
+               {label:'Appointment',value:{parent:'enquiry',child:'Appointment'}},
+               {label:'Trial',value:{parent:'enquiry',child:'Trial'}},
+               {label:'ColdEnquires',value:{parent:'enquiry',,child:'ColdEnquires'}},
+               {label:'prospects',value:{parent:'prospects',child:'no'}},
+               {label:'All Client',value:{parent:'client',child:'no'}},    
+               {label:'Active Client',value:{parent:'client',child:'active'}},
+               {label:'Reneval Client',value:{parent:'client',child:'reneval'}},
+               {label:'Renewed Client',value:{parent:'client',child:'renewed'}},
+               {label:'Left Client',value:{parent:'client',child:'leftClient'}},                
             ]
      }
       response.forEach((el)=>{
