@@ -38,7 +38,7 @@ router.get('/all', async function (req, res) {
                {label:'All Enquiry',value:{parent:'enquiry',child:'no'}},
                {label:'Appointment',value:{parent:'enquiry',child:'Appointment'}},
                {label:'Trial',value:{parent:'enquiry',child:'Trial'}},
-               {label:'ColdEnquires',value:{parent:'enquiry',,child:'ColdEnquires'}},
+               {label:'ColdEnquires',value:{parent:'enquiry',child:'ColdEnquires'}},
                {label:'prospects',value:{parent:'prospects',child:'no'}},
                {label:'All Client',value:{parent:'client',child:'no'}},    
                {label:'Active Client',value:{parent:'client',child:'active'}},
