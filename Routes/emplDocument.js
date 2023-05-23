@@ -12,6 +12,17 @@ router.get('/all', async function (req, res) {
     }
 })
 
+
+router.get('/emp/:MemBerId', async function (req, res) {
+    const {MemBerId} = req.params;
+    try {
+        const response = await emplDocument.find({MemBerId:MemBerId})
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
 router.post('/create', async (req, res) => {
     try {
         const temp = await new emplDocument(req.body)
