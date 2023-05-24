@@ -12,11 +12,19 @@ router.get('/all', async function (req, res) {
     }
 })
 
-router.post('/create', async (req, res) => {
+router.get('/all', async function (req, res) {
     try {
-        const temp = await new memberForm(req.body)
-        const response = await temp.save();
-        console.log(response);
+        const response = await memberForm.find()
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
+router.post('classes/:typeOFBatchClasses', async (req, res) => {
+    try {   
+        const {typeOFBatchClasses} = req.params;
+        const response = await StockOrderList.find({typeOFBatchClasses:typeOFBatchClasses})
         return res.status(200).json(response);
     } catch (err) {
         return res.status(500).json({ error: err })
