@@ -21,7 +21,7 @@ router.get('/all', async function (req, res) {
     }
 })
 
-router.post('/classes/:typeOFBatchClasses', async (req, res) => {
+router.get('/classes/:typeOFBatchClasses', async (req, res) => {
     try {   
         const {typeOFBatchClasses} = req.params;
         const response = await  memberForm.find({typeOFBatchClasses:typeOFBatchClasses})
