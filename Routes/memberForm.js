@@ -24,7 +24,7 @@ router.get('/all', async function (req, res) {
 router.post('/classes/:typeOFBatchClasses', async (req, res) => {
     try {   
         const {typeOFBatchClasses} = req.params;
-        const response = await StockOrderList.find({typeOFBatchClasses:typeOFBatchClasses})
+        const response = await  memberForm.find({typeOFBatchClasses:typeOFBatchClasses})
         return res.status(200).json(response);
     } catch (err) {
         return res.status(500).json({ error: err })
