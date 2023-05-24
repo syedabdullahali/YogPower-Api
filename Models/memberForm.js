@@ -76,6 +76,7 @@ let memberFroms = new mongoose.Schema({
     ClientReferenceName:String,
     EmployeeId:String,
     EnquiryId:String,
+    typeOFBatchClasses:String,
     welcomeCallInfo:
          {
             wellComeCallTimeing:String,
