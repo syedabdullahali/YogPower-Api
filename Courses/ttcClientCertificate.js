@@ -1,6 +1,7 @@
 let mongoose = require('mongoose')
 
 let ttcClientCertificate = new mongoose.Schema({
+  username:String,
   name:String,
   contactNo:String,
   emailID:String,
