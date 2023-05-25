@@ -1,38 +1,24 @@
 let mongoose = require('mongoose')
 
 let ttcClientCertificate = new mongoose.Schema({
-    MemberId: {
-        type: String,
-        unique: true,
-    },
-    Profile: String,
-    Mobile: {
-        type: Number,
-        unique: true,
-    },
-    
-    Invoice: Number,
-    AttendanceId: {
-        type: String,
-        unique: true,
-    },
-    Services: [{
-        type: String
-    }],
-    StartDate: {
-        type: Date,
-        default: Date.now,
-    },
-    Enddate: {
-        type: Date,
-        default: new Date(+new Date() + 7 * 24 * 60 * 60 * 1000),
-    },
-    CallStatus: String,
-    Appointments: [{
-        type: String
-    }],
-    Traning: String,
-    Status: String,
+  name:String,
+  contactNo:String,
+  emailID:String,
+  course:String,
+  joiningDate:String,
+  books:String,
+  prractical:String,
+  viva:String,
+  project:String,
+  videos:String,
+  theory:String,
+  exam:String,
+  result:String,
+  certification:String,
+  grade:String,
+  certificationNum:String,
+  couirer:String,
+  visit:String	
 }, { timestamps: true })
 
 module.exports = mongoose.model('ttcClientCertificate', ttcClientCertificate);
