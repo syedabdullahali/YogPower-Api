@@ -21,7 +21,7 @@ let tcClientCertificate = new mongoose.Schema({
     certification:String,
     grade:String,
     certificationNum:String,
-    couirer:String,
+    fileName:String,
     visit:String	
 }, { timestamps: true })
 
