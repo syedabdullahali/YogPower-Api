@@ -189,7 +189,7 @@ app.use('/trainerPerformance',userValidate,require('./Routes/trainerPerformance'
 app.use('/leaveSetUpMaster',userValidate,require('./Routes/leaveSetUpMaster'))
 app.use('/sendMultipalMail',userValidate,require('./Routes/sendMultiPalMail'))
 app.use('/marketingEM',userValidate,require('./Routes2/MarketingEC/marketingEM'))
-app.use('/ttcClientCertificate',userValidate,require('./Routes2/Courses/ttcClientCertificate'))
+app.use('/tcClientCertificate',userValidate,require('./Routes/tcClientCertificate'))
 
 
 
