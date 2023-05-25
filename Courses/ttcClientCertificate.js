@@ -8,7 +8,7 @@ let ttcClientCertificate = new mongoose.Schema({
   empId:String,
   course:String,
   service:String,
-  joiningDate:String,
+  joiningDate:Date,
   books:String,
   prractical:String,
   viva:String,
