@@ -190,6 +190,7 @@ app.use('/leaveSetUpMaster',userValidate,require('./Routes/leaveSetUpMaster'))
 app.use('/sendMultipalMail',userValidate,require('./Routes/sendMultiPalMail'))
 app.use('/marketingEM',userValidate,require('./Routes2/MarketingEC/marketingEM'))
 app.use('/tcClientCertificate',userValidate,require('./Routes/tcClientCertificate'))
+app.use('/ttcVideo',userValidate,require('./Routes/ttcVideo'))
 
 
 
