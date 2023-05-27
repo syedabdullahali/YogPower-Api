@@ -17,6 +17,7 @@ let productInvoice = new mongoose.Schema({
     amount: Number,
     paymode:String, 
     pendingAmount:Number,
+    Fullname:String,
     InventoryStock:[
         {
          Product_Code:{
