@@ -9,3 +9,4 @@ let ttcVideo = new mongoose.Schema({
 }, { timestamps: true })
 
 module.exports =   mongoose.model('ttcVideo', ttcVideo);
+
