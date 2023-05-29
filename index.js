@@ -192,6 +192,8 @@ app.use('/marketingEM',userValidate,require('./Routes2/MarketingEC/marketingEM')
 app.use('/tcClientCertificate',userValidate,require('./Routes/tcClientCertificate'))
 app.use('/ttcVideo',userValidate,require('./Routes/ttcVideo'))
 app.use('/productInvoice',userValidate,require('./Routes/productInvoice'))
+app.use('/ttcPDFDetails',userValidate,require('./Routes/ttcPDFDetails'))
+
 
 
 
