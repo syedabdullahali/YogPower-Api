@@ -12,6 +12,20 @@ router.get('/all', async function (req, res) {
     }
 })
 
+
+router.get('/emp/:id', async function (req, res) {
+
+    const {id} = req.params;
+
+    try {
+        const response = await staffAttendance.find({ staffId: id })
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
+
 router.get('/report', async function (req, res) {
     try {
         const response = await staffAttendance.find({status:'Done'})
