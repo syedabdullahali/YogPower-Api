@@ -3,6 +3,7 @@ const router = express.Router()
 //modelName
 const salarySheet = require('../Models/salarySheet')
 
+
 router.get('/all', async function (req, res) {
     try {
         const response = await salarySheet.find()
@@ -11,6 +12,19 @@ router.get('/all', async function (req, res) {
         return res.status(500).json({ error: err })
     }
 })
+
+router.get('/emp/:id', async function (req, res) {
+
+    const {id} = req.params
+
+    try {
+        const response = await salarySheet.find({empId:id})
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
 router.post('/create', async (req, res) => {
     try {
         const temp = await new salarySheet(req.body)
