@@ -18,7 +18,7 @@ router.get('/emp/:id', async function (req, res) {
     const {id} = req.params
 
     try {
-        const response = await salarySheet.find({empId:id})
+        const response = await salarySheet.find({employeeID:id})
         return res.status(200).json(response);
     } catch (err) {
         return res.status(500).json({ error: err })
