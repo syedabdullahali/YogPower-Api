@@ -3,6 +3,7 @@ let mongoose = require('mongoose')
 
 let trainerSalarySlip = new mongoose.Schema({
     username: String,
+    date:String,
     trainerName:String,   
     prHourSalary:Number,
     totalWorkingHours:Number,
