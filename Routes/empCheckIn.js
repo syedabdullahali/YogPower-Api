@@ -13,7 +13,7 @@ router.get('/all', async function (req, res) {
 })
 
 
-router.get('emp/:id', async function (req, res) {
+router.get('/emp/:id', async function (req, res) {
 
     const {id} = req.params;
 
