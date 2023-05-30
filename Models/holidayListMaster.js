@@ -4,7 +4,7 @@ let holidayListMaster = new mongoose.Schema({
     username: String,
     Date: Date,
     Holiday: String,
-    Holiday: Number,
+    HolidayNo: Number,
     Status: Boolean,
 }, { timestamps: true })
 
