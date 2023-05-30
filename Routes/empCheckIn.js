@@ -18,7 +18,7 @@ router.get('emp/:id', async function (req, res) {
     const {id} = req.params;
 
     try {
-        const response = await empCheckIn.find({ _id: id })
+        const response = await empCheckIn.find({ staffId: id })
         return res.status(200).json(response);
     } catch (err) {
         return res.status(500).json({ error: err })
