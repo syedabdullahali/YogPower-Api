@@ -5,6 +5,7 @@ let salarySheet = new mongoose.Schema({
 username: String,
 month: String,
 empId: String,
+ctc:String,
 joiningDate:String,
 Gender:String,  
 empName:String,
