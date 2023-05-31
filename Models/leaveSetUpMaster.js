@@ -6,6 +6,9 @@ noOfLeave:String,
 noOfSl:String,
 noOfCl:String,
 noOfPl:String,
+monthYear:String,
+month:Number,
+year:Number
 }, { timestamps: true })
 
 module.exports =   mongoose.model('leaveSetUpMaster', leaveSetUpMaster);
