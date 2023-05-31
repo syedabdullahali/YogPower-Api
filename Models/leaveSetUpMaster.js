@@ -8,7 +8,8 @@ noOfCl:String,
 noOfPl:String,
 monthYear:String,
 month:Number,
-year:Number
+year:Number,
+totalLeave:Number  
 }, { timestamps: true })
 
 module.exports =   mongoose.model('leaveSetUpMaster', leaveSetUpMaster);
