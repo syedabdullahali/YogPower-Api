@@ -193,6 +193,8 @@ app.use('/tcClientCertificate',userValidate,require('./Routes/tcClientCertificat
 app.use('/ttcVideo',userValidate,require('./Routes/ttcVideo'))
 app.use('/productInvoice',userValidate,require('./Routes/productInvoice'))
 app.use('/ttcPDFDetails',userValidate,require('./Routes/ttcPDFDetails'))
+app.use('/empleaveList',userValidate,require('./Routes/empleaveList'))
+
 
 
 
