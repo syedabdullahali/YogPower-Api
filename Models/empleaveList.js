@@ -6,6 +6,7 @@ empId:String,
 empName:String,
 useLeave:String,
 MemberId:String,
+availableLeave:String,  
 }, { timestamps: true })
 
 
