@@ -7,6 +7,11 @@ empName:String,
 useLeave:String,
 MemberId:String,
 availableLeave:String,  
+noOfLeave:Number,
+noOfSl:Number,
+noOfCl:Number,
+noOfPl:Number,
+year:Number,
 }, { timestamps: true })
 
 
