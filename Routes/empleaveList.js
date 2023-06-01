@@ -30,7 +30,7 @@ router.get('/emp-leave-info', async function (req, res) {
              empName:el.FullName,
              memBerId:el._id,
              empId:el.EmployeeID,
-             leaveDetails:{
+             leaveDetails:[
                 ...response2.map((el2)=>{
                     let details= [] 
                     let useleave=0 
@@ -51,7 +51,7 @@ router.get('/emp-leave-info', async function (req, res) {
                         useleave,
                         leaveReport:details,     
                     }
-                })}
+                })]
              }
            })
 
