@@ -32,12 +32,10 @@ router.get('/emp-leave-info', async function (req, res) {
              empId:el.EmployeeID,
              leaveDetails:[
                 ...response2.map((el2)=>{
-                    let details= [] 
                     let useleave=0 
 
                     response3.forEach(el3 => {
                         if(el2.year===el3.year&&el3.MemberId===el._id.toString()){
-                             details.push(el3)
                              useleave+=+el3.useLeave
                         }    
                 })
@@ -49,7 +47,6 @@ router.get('/emp-leave-info', async function (req, res) {
                         noOfPl:+el2.noOfPl,
                         year:+el2.year,
                         useleave,
-                        leaveReport:details,     
                     }
                 })]
              }
@@ -71,7 +68,7 @@ router.get('/emp/:id', async function (req, res) {
     const {id} = req.params
 
     try {
-        const response = await empleaveList.find({empId:id})
+        const response = await empleaveList.find({MemberId:id})
         return res.status(200).json(response);
     } catch (err) {
         return res.status(500).json({ error: err })
