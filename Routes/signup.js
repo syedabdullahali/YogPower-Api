@@ -40,9 +40,9 @@ router.post('/create', async (req, res) => {
         if (found) return res.status(400).send({ error: "User already Exists" });
         //Hashing Password
         console.log(password)
-        // let salt = await bcrypt.genSalt(5);
-        // const hashed = await bcrypt.hash(password, salt);
-        // password = hashed;
+        let salt = await bcrypt.genSalt(5);
+        const hashed = await bcrypt.hash(password, salt);
+        password = hashed;
         // dashboardAccess = dashboardAccess.toLowerCase()
         //Creating a User
         let temp = await new User({
@@ -58,7 +58,8 @@ router.post('/create', async (req, res) => {
   mobNo,
   MemBerId,
   createdBy,
-  createrId
+  createrId,
+  isAdmin          
         });
         const response = await temp.save();
         return res.status(200).json(response);
@@ -83,7 +84,8 @@ router.post('/update/:email', async (req, res) => {
   mobNo,
   MemBerId,
   createdBy,
-  createrId
+  createrId,
+  isAdmin           
         } = req.body;
         let salt = await bcrypt.genSalt(5);
         const hashed = await bcrypt.hash(password, salt);
@@ -102,7 +104,8 @@ router.post('/update/:email', async (req, res) => {
   mobNo,
   MemBerId,
   createdBy,
-  createrId
+  createrId,
+  isAdmin          
         });
         return res.status(200).json(response)
     } catch (err) {
