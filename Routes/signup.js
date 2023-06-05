@@ -17,12 +17,19 @@ router.get('/all', userValidate, async function (req, res) {
 router.post('/create', async (req, res) => {
     try {
         let {
-            username,
-            email,
-            password,
-            dashboardAccess,
-            center,
-            centerCode,
+  username,
+  email,
+  passwor,
+  center,
+  centerCode,
+  status,
+  Designation,
+  empName,
+  empId,
+  mobNo,
+  MemBerId,
+  createdBy,
+  createrId
         } = req.body;
         //Checking if User Already Exists
         let found = await User.findOne({ email });
@@ -34,12 +41,19 @@ router.post('/create', async (req, res) => {
         dashboardAccess = dashboardAccess.toLowerCase()
         //Creating a User
         let temp = await new User({
-            username,
-            email,
-            password,
-            dashboardAccess,
-            center,
-            centerCode,
+  username,
+  email,
+  passwor,
+  center,
+  centerCode,
+  status,
+  Designation,
+  empName,
+  empId,
+  mobNo,
+  MemBerId,
+  createdBy,
+  createrId
         });
         const response = await temp.save();
         return res.status(200).json(response);
@@ -52,24 +66,38 @@ router.post('/create', async (req, res) => {
 router.post('/update/:email', async (req, res) => {
     try {
         let {
-            username,
-            email,
-            password,
-            dashboardAccess,
-            center,
-            centerCode,
+   username,
+  email,
+  passwor,
+  center,
+  centerCode,
+  status,
+  Designation,
+  empName,
+  empId,
+  mobNo,
+  MemBerId,
+  createdBy,
+  createrId
         } = req.body;
         let salt = await bcrypt.genSalt(5);
         const hashed = await bcrypt.hash(password, salt);
         password = hashed;
         dashboardAccess = dashboardAccess.toLowerCase()
         const response = await User.findByIdAndUpdate(req.params.email, {
-            username,
-            email,
-            password,
-            dashboardAccess,
-            center,
-            centerCode,
+   username,
+  email,
+  passwor,
+  center,
+  centerCode,
+  status,
+  Designation,
+  empName,
+  empId,
+  mobNo,
+  MemBerId,
+  createdBy,
+  createrId
         });
         return res.status(200).json(response)
     } catch (err) {
