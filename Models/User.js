@@ -18,6 +18,8 @@ let Users = new mongoose.Schema({
     empId:String,
     mobNo:Number,
     MemBerId:String,
+    CreatedBy:String,
+    CreaterId:String
 }, { timestamps: true })
 
 module.exports = mongoose.model('Users', Users);
