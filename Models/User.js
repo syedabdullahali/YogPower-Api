@@ -16,6 +16,7 @@ let Users = new mongoose.Schema({
     Designation:String,
     empName:String,
     empId:String,
+    mobNo:Number
 }, { timestamps: true })
 
 module.exports = mongoose.model('Users', Users);
