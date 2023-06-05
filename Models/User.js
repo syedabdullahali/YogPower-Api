@@ -10,10 +10,12 @@ let Users = new mongoose.Schema({
         unique: true,
     },
     password: String,
-    dashboardAccess: String,
     center: String,
     centerCode: String,
     status: Boolean,
+    Designation:String,
+    empName:String,
+    empId:String,
 }, { timestamps: true })
 
 module.exports = mongoose.model('Users', Users);
