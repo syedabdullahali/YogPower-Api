@@ -14,12 +14,16 @@ router.get('/all', userValidate, async function (req, res) {
     }
 })
 
+
 router.post('/create', async (req, res) => {
+    console.log(req.body)
+    console.log(req.body.password)
+
     try {
         let {
   username,
   email,
-  passwor,
+  password,
   center,
   centerCode,
   status,
@@ -35,15 +39,16 @@ router.post('/create', async (req, res) => {
         let found = await User.findOne({ email });
         if (found) return res.status(400).send({ error: "User already Exists" });
         //Hashing Password
-        let salt = await bcrypt.genSalt(5);
-        const hashed = await bcrypt.hash(password, salt);
-        password = hashed;
-        dashboardAccess = dashboardAccess.toLowerCase()
+        console.log(password)
+        // let salt = await bcrypt.genSalt(5);
+        // const hashed = await bcrypt.hash(password, salt);
+        // password = hashed;
+        // dashboardAccess = dashboardAccess.toLowerCase()
         //Creating a User
         let temp = await new User({
   username,
   email,
-  passwor,
+  password,
   center,
   centerCode,
   status,
@@ -68,7 +73,7 @@ router.post('/update/:email', async (req, res) => {
         let {
    username,
   email,
-  passwor,
+  password,
   center,
   centerCode,
   status,
@@ -83,11 +88,11 @@ router.post('/update/:email', async (req, res) => {
         let salt = await bcrypt.genSalt(5);
         const hashed = await bcrypt.hash(password, salt);
         password = hashed;
-        dashboardAccess = dashboardAccess.toLowerCase()
+        // dashboardAccess = dashboardAccess.toLowerCase()
         const response = await User.findByIdAndUpdate(req.params.email, {
    username,
   email,
-  passwor,
+  password,
   center,
   centerCode,
   status,
@@ -101,6 +106,7 @@ router.post('/update/:email', async (req, res) => {
         });
         return res.status(200).json(response)
     } catch (err) {
+        console.log('hekrj')
         return res.status(500).json({ error: err })
     }
 })
