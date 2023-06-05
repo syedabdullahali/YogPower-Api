@@ -19,7 +19,8 @@ let Users = new mongoose.Schema({
     mobNo:Number,
     MemBerId:String,
     createdBy:String,
-    createrId:String
+    createrId:String,
+    isAdmin:Boolean,
 }, { timestamps: true })
 
 module.exports = mongoose.model('Users', Users);
