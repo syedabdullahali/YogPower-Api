@@ -33,7 +33,9 @@ router.post('/create', async (req, res) => {
   mobNo,
   MemBerId,
   createdBy,
-  createrId
+  createrId,
+  isAdmin          
+
         } = req.body;
         //Checking if User Already Exists
         let found = await User.findOne({ email });
