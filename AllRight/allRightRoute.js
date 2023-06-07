@@ -47,7 +47,7 @@ router.get('/:id', async function (req, res) {
 
 router.get('/rights/:emailUniqId', async function (req, res) {
     try {
-        const response = await allRightModule.findOne({emailUniqId: req.params.emailUniqId })
+        const response = await allRightModule.find({emailUniqId: req.params.emailUniqId })
         return res.status(200).json(response);
     } catch (err) {
         return res.status(500).json({ error: err })
