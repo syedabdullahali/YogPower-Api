@@ -23,7 +23,8 @@ router.post('', async function (req, res) {
                         dashboardAccess: user.dashboardAccess,
                         center: user.center,
                         centerCode: user.centerCode,
-                        emailUniqId:user._id
+                        emailUniqId:user._id,
+                        isAdmin:user.isAdmin
                     }
                 });
             }
