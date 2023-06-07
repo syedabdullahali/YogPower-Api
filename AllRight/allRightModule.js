@@ -7,33 +7,33 @@ let allRightModule = new mongoose.Schema({
  emailUniqId:String,
  crmErp:{
     crmDashboard:{
-        crmDashboard:Boolean,
+        value:Boolean,
         rights:[]
     },
     crmEmployee:{
-        crmEmployee:Boolean,
+        value:Boolean,
         items:{
             crmDashboard1:{
-               crmDashboard1:Boolean,
+                value:Boolean,
                rights:[]
             },
             crmEmployeeTarget1:{
-                crmEmployeeTarget1:Boolean,
+                value:Boolean,
                 rights:[]
             },
             crmMemberCalls1:{
-                crmMemberCalls1:Boolean,
+                value:Boolean,
                 rights:[]
             },crmSalesCall1:{
-                crmSalesCall1:Boolean,
+                value:Boolean,
                 rights:[]
             },crmServicesRateCard1:{
-                crmServicesRateCard1:Boolean
+                value:Boolean
             }
         }
     },
     crmTrainer:{
-        crmTrainer:Boolean,
+        value:Boolean,
         items:{
             superRight:{
                 dailybatchAttendance:[],
@@ -41,19 +41,19 @@ let allRightModule = new mongoose.Schema({
                 clientAttendanceReg:[]
             },    
             crmLiveClasses1:{
-                crmLiveClasses1:Boolean
+                value:Boolean
             },
             allBatches1:{
-                crmAllBatches1:Boolean
+                value:Boolean
             },
             ptClasses1:{
-                crmPtClasses1:Boolean
+                value:Boolean
             },
             ttcClasses:{
-                crmTtcClasses:Boolean
+                value:Boolean
             },
             crmAllMembers1:{
-                crmAllMembers1:Boolean
+                value:Boolean
             }
         }
     }
