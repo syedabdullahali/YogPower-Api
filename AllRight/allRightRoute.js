@@ -23,12 +23,14 @@ router.get('/:id', async function (req, res) {
 
 router.post('/create', async (req, res) => {
     try {
+        console.log(req.body)
         const temp = await new allRightModule(req.body)
         const response = await temp.save();
         // const response = await allRightModule.insertMany(salesclosureData)
         console.log(response);
         return res.status(200).json(response);
     } catch (err) {
+        console.log(err.message)
         return res.status(500).json({ error: err })
     }
 });

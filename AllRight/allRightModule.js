@@ -1,15 +1,14 @@
 let mongoose = require('mongoose')
-let obj = {
-    type: Boolean,
-    required: true
-}
-let allRightModule = new mongoose.Schema({
+let obj = Boolean
+
+let allRightModule = new mongoose.Schema(
+    {
  empId:String,
  empName:String,
  memBerId:String,
  email:String,
  emailUniqId:String,
- crmErp:{
+ crmRights:{
     crmDashboard:{
         value:Boolean,
         rights:[]
