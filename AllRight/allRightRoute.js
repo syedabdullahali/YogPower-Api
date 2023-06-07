@@ -19,7 +19,7 @@ router.get('/all', async function (req, res) {
             }
            })
           response2.forEach((el)=>{
-             if(!el._id){return}
+             if(!el._id ||el.isAdmin){return}
              if(!map.has(el._id)){
                     map.set(el._id,el)
             }
