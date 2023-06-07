@@ -9,16 +9,18 @@ router.get('/all', async function (req, res) {
         const map = new Map()
         const arr = []
 
-        const response = await signupModule .find()
-        const response2 = await allRightModule.find()
+        const response = await  allRightModule.find()
+        const response2 = await signupModule.find()
 
         response.forEach((el)=>{
-            if(!map.has(el.emailUniqId) && el.emailUniqId){
+            if(!el.emailUniqId){return}
+            if(!map.has(el.emailUniqId)){
                     map.set(el.emailUniqId,el)
             }
            })
           response2.forEach((el)=>{
-            if(!map.has(el._id) && el._id){
+             if(!el._id){return}
+             if(!map.has(el._id)){
                     map.set(el._id,el)
             }
            })   
