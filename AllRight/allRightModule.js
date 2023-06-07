@@ -1,4 +1,8 @@
 let mongoose = require('mongoose')
+let obj = {
+    type: Boolean,
+    required: true
+}
 let allRightModule = new mongoose.Schema({
  empId:String,
  empName:String,
@@ -11,29 +15,29 @@ let allRightModule = new mongoose.Schema({
         rights:[]
     },
     crmEmployee:{
-        value:Boolean,
+        value:obj,
         items:{
             crmDashboard1:{
-                value:Boolean,
+                value:obj,
                rights:[]
             },
             crmEmployeeTarget1:{
-                value:Boolean,
+                value:obj,
                 rights:[]
             },
             crmMemberCalls1:{
-                value:Boolean,
+                value:obj,
                 rights:[]
             },crmSalesCall1:{
-                value:Boolean,
+                value:obj,
                 rights:[]
             },crmServicesRateCard1:{
-                value:Boolean
+                value:obj
             }
         }
     },
     crmTrainer:{
-        value:Boolean,
+        value:obj,
         items:{
             superRight:{
                 dailybatchAttendance:[],
@@ -41,19 +45,19 @@ let allRightModule = new mongoose.Schema({
                 clientAttendanceReg:[]
             },    
             crmLiveClasses1:{
-                value:Boolean
+                value:obj
             },
-            allBatches1:{
-                value:Boolean
+            crmAllBatches1:{
+                value:obj
             },
-            ptClasses1:{
-                value:Boolean
+            crmPtClasses1:{
+                value:obj
             },
-            ttcClasses:{
-                value:Boolean
+            crmTtcClasses:{
+                value:obj
             },
             crmAllMembers1:{
-                value:Boolean
+                value:obj
             }
         }
     }
