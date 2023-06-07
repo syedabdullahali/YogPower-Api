@@ -4,6 +4,7 @@ let allRightModule = new mongoose.Schema({
  empName:String,
  memBerId:String,
  email:String,
+ emailUniqId:String,
  crmErp:{
     crmDashboard:{
         crmDashboard:Boolean,
