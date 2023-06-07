@@ -2,19 +2,50 @@ const express = require('express')
 const router = express.Router()
 //modelName
 const allRightModule = require('../AllRight/allRightModule')
+const signupModule = require('../Models/User')
 
 router.get('/all', async function (req, res) {
     try {
-        const response = await allRightModule.find()
+        const map = new Map()
+        const arr = []
+
+        const response = await signupModule .find()
+        const response2 = await allRightModule.find()
+
+        response.forEach((el)=>{
+            if(!map.has(el.emailUniqId) && el.emailUniqId){
+                    map.set(el.emailUniqId,el)
+            }
+           })
+          response2.forEach((el)=>{
+            if(!map.has(el._id) && el._id){
+                    map.set(el._id,el)
+            }
+           })   
+
+           map.forEach((el)=>{
+                arr.push(el)
+           })
+
+        return res.status(200).json(arr);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
+
+router.get('/:id', async function (req, res) {
+    try {
+        const response = await allRightModule.findById({ _id: req.params.id })
         return res.status(200).json(response);
     } catch (err) {
         return res.status(500).json({ error: err })
     }
 })
 
-router.get('/:id', async function (req, res) {
+router.get('/rights/:emailUniqId', async function (req, res) {
     try {
-        const response = await allRightModule.findById({ _id: req.params.id })
+        const response = await allRightModule.findOne({emailUniqId: req.params.emailUniqId })
         return res.status(200).json(response);
     } catch (err) {
         return res.status(500).json({ error: err })
