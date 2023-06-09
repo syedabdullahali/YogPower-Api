@@ -1,8 +1,6 @@
 let mongoose = require('mongoose')
-let obj = Boolean
 
-let allRightModule = new mongoose.Schema(
-    {
+let allRightModule = new mongoose.Schema({
  empId:String,
  empName:String,
  memBerId:String,
@@ -14,29 +12,29 @@ let allRightModule = new mongoose.Schema(
         rights:[]
     },
     crmEmployee:{
-        value:obj,
+        value:Boolean,
         items:{
             crmDashboard1:{
-                value:obj,
+                value:Boolean,
                rights:[]
             },
             crmEmployeeTarget1:{
-                value:obj,
+                value:Boolean,
                 rights:[]
             },
             crmMemberCalls1:{
-                value:obj,
+                value:Boolean,
                 rights:[]
             },crmSalesCall1:{
-                value:obj,
+                value:Boolean,
                 rights:[]
             },crmServicesRateCard1:{
-                value:obj
+                value:Boolean
             }
         }
     },
     crmTrainer:{
-        value:obj,
+        value:Boolean,
         items:{
             superRight:{
                 dailybatchAttendance:[],
@@ -44,25 +42,115 @@ let allRightModule = new mongoose.Schema(
                 clientAttendanceReg:[]
             },    
             crmLiveClasses1:{
-                value:obj
+                value:Boolean
             },
             crmAllBatches1:{
-                value:obj
+                value:Boolean
             },
             crmPtClasses1:{
-                value:obj
+                value:Boolean
             },
             crmTtcClasses:{
-                value:obj
+                value:Boolean
             },
             crmAllMembers1:{
-                value:obj
+                value:Boolean
             }
         }
+    },
+    crmLeads:{
+        value:Boolean,
+        items:{
+            superRight:{
+                addOn:[],
+                delete:[],
+                edit:[]
+            },
+            crmAllEnquiry1:{
+                value:Boolean,
+            },
+            crmAppointment1:{
+                value:Boolean,
+            },
+            crmTrialUpdate1:{
+                value:Boolean,
+            },
+            crmProspects1:{
+                value:Boolean,
+            },
+            crmCallsReports1:{
+                value:Boolean,
+            }
+        }
+    },
+    crmCientManagment:{
+        value:Boolean,
+        items:{
+            superRight:{
+                delete:[],
+                edit:[],
+                status:[],
+                profile:[]
+            },
+            crmAllClients1:{
+                value:Boolean,
+            },
+            crmActiveClients1:{
+                value:Boolean,
+            },
+            crmRenewalsClient1:{
+                value:Boolean,
+            },
+            crmRenewedClients1:{
+                value:Boolean,
+            },
+            crmLeftClients1:{
+                value:Boolean,
+            },
+            crmClientSupport1:{
+                value:Boolean,
+            }
+        }
+    },
+    crmMarketing:{
+        value:Boolean,
+        items:{
+            superRight:{
+                addOn:[],
+                delete:[],
+                edit:[],
+                status:[],
+            },
+            crmEmailMarketing1:{
+                value:Boolean
+            },
+            crmSmsMarketing1:{
+                value:Boolean
+            },
+            crmPushMarketing1:{
+                value:Boolean
+            },
+            crmBulkMailerData1:{
+                value:Boolean
+            },
+            crmBulkCallingData1:{
+                value:Boolean
+            },
+            crmCustomerReview1:{
+                value:Boolean
+            }
+        }
+    },
+    crmFitness:{
+        value:Boolean,
+        items:{
+            crmFitnessGoal:{
+                value:Boolean,
+                rights:[]
+            }
+         }
     }
  }
-
-    
 }, { timestamps: true })
 
 module.exports = mongoose.model('allRightModule', allRightModule);
