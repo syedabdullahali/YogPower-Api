@@ -141,6 +141,9 @@ let allRightModule = new mongoose.Schema({
             },
             crmCustomerReview1:{
                 value:Boolean
+            },
+            crmOffersMaster1:{
+             value:Boolean
             }
         }
     },
