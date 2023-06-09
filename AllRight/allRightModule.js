@@ -80,6 +80,9 @@ let allRightModule = new mongoose.Schema({
             },
             crmCallsReports1:{
                 value:Boolean,
+            },
+            crmColdEnquires1:{
+                value:Boolean,
             }
         }
     },
