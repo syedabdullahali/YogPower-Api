@@ -153,7 +153,7 @@ let allRightModule = new mongoose.Schema({
             addOn:[],
             delete:[],
             edit:[],
-            status:[],
+            access:[],
         },
         items:{
             crmFitnessGoal:{
