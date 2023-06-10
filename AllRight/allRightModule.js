@@ -149,12 +149,18 @@ let allRightModule = new mongoose.Schema({
     },
     crmFitness:{
         value:Boolean,
+         superRight:{
+            addOn:[],
+            delete:[],
+            edit:[],
+            status:[],
+        },
         items:{
             crmFitnessGoal:{
                 value:Boolean,
                 rights:[]
             }
-         }
+        }
     }
  }
 }, { timestamps: true })
