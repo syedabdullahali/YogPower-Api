@@ -5,6 +5,13 @@ let templateMaster = new mongoose.Schema({
     templateName: String,
     content: String,
     Status: Boolean,
+    empNameC:String,
+    employeeIDC:String,
+    employeeUniqIdC:String,
+    centerNameC:String,
+    centerCodeC:String,
+    adminNameC:String,
+    emIdback:String
 }, { timestamps: true })
 
 module.exports = mongoose.model('templateMaster', templateMaster);

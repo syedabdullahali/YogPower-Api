@@ -83,6 +83,13 @@ let Invoice = new mongoose.Schema({
             }
       },
       ],
+      empNameC:String,
+      employeeIDC:String,
+      employeeUniqIdC:String,
+      centerNameC:String,
+      centerCodeC:String,
+      adminNameC:String,
+      emIdback:String
 
 }, { timestamps: true })
 

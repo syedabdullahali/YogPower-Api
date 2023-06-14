@@ -29,7 +29,14 @@ const calenderSchema = mongoose.Schema(
                     required: true,
                 }
             }
-        ]
+        ],
+        empNameC:String,
+        employeeIDC:String,
+        employeeUniqIdC:String,
+        centerNameC:String,
+        centerCodeC:String,
+        adminNameC:String,
+        emIdback:String
 
     },
 )

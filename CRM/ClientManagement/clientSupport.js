@@ -29,6 +29,13 @@ const clientSupportSchema = mongoose.Schema(
         Delete: {
             type: String,
         },
+        empNameC:String,
+        employeeIDC:String,
+        employeeUniqIdC:String,
+        centerNameC:String,
+        centerCodeC:String,
+        adminNameC:String,
+        emIdback:String
         
     },
 )

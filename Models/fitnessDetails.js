@@ -26,6 +26,13 @@ let fitnessDetails = new mongoose.Schema({
     CalfL: Number,
     Counseller: String,
     NextFollowup_Date: Date,
+    empNameC:String,
+    employeeIDC:String,
+    employeeUniqIdC:String,
+    centerNameC:String,
+    centerCodeC:String,
+    adminNameC:String,
+    emIdback:String
 }, { timestamps: true })
 
 module.exports = mongoose.model('fitnessDetails', fitnessDetails);

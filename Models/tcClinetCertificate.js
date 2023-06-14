@@ -22,7 +22,14 @@ let tcClientCertificate = new mongoose.Schema({
     grade:String,
     certificationNum:String,
     fileName:String,
-    visit:String	
+    visit:String,
+    empNameC:String,
+    employeeIDC:String,
+    employeeUniqIdC:String,
+    centerNameC:String,
+    centerCodeC:String,
+    adminNameC:String,
+    emIdback:String	
 }, { timestamps: true })
 
 module.exports =   mongoose.model('tcClientCertificate', tcClientCertificate);

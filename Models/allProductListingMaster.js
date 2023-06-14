@@ -10,7 +10,14 @@ let allProductListingMaster = new mongoose.Schema({
     productPrize:String,
     ordersQty:String,
     Kg:String,
-    Color:String
+    Color:String,
+    empNameC:String,
+    employeeIDC:String,
+    employeeUniqIdC:String,
+    centerNameC:String,
+    centerCodeC:String,
+    adminNameC:String,
+    emIdback:String
 }, { timestamps: true })
 
 

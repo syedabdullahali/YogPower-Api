@@ -16,7 +16,13 @@ let professionalinfo = new mongoose.Schema({
     Email: String,
     Relationship: String,
     address: String,
-    City: String,
+    empNameC:String,
+    employeeIDC:String,
+    employeeUniqIdC:String,
+    centerNameC:String,
+    centerCodeC:String,
+    adminNameC:String,
+    emIdback:String
 }, { timestamps: true })
 
 module.exports = mongoose.model('professionalinfos', professionalinfo);

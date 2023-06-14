@@ -11,7 +11,14 @@ let inventoryListingMaster = new mongoose.Schema({
     ordersQty:String,
     Kg:String,
     Color:String,
-    Available_Stock:String
+    Available_Stock:String,
+    empNameC:String,
+    employeeIDC:String,
+    employeeUniqIdC:String,
+    centerNameC:String,
+    centerCodeC:String,
+    adminNameC:String,
+    emIdback:String
 }, { timestamps: true })
 
 

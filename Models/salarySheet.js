@@ -30,6 +30,13 @@ advancedSalaryDedct: String,
 typeOfJobTimeing:String,  
 modeOfPayment:String,
 employeeID:String,  
+empNameC:String,
+employeeIDC:String,
+employeeUniqIdC:String,
+centerNameC:String,
+centerCodeC:String,
+adminNameC:String,
+emIdback:String
 }, { timestamps: true })
 
 

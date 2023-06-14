@@ -99,7 +99,14 @@ let memberFroms = new mongoose.Schema({
         greetingDiscussion:String,
         greetingFollowupby:String,
         greetingFollowUpDate:String
-         }
+         },
+         empNameC:String,
+         employeeIDC:String,
+         employeeUniqIdC:String,
+         centerNameC:String,
+         centerCodeC:String,
+         adminNameC:String,
+         emIdback:String
          
 }, { timestamps: true })
 

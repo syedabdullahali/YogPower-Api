@@ -16,6 +16,13 @@ let CompanyProfile = new mongoose.Schema({
     workingDays: Number,
     halfDay: String,
     holidays: String,
+    empNameC:String,
+    employeeIDC:String,
+    employeeUniqIdC:String,
+    centerNameC:String,
+    centerCodeC:String,
+    adminNameC:String,
+    emIdback:String
 }, { timestamps: true })
 
 module.exports = mongoose.model('CompanyProfile', CompanyProfile);

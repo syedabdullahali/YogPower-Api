@@ -12,5 +12,12 @@ let Batch = new mongoose.Schema({
 	MemberId:String,
 	trainerId:String,
 	BatchTime:String,
+	empNameC:String,
+    employeeIDC:String,
+    employeeUniqIdC:String,
+    centerNameC:String,
+    centerCodeC:String,
+    adminNameC:String,
+    emIdback:String
 }, { timestamps: true })
 module.exports = mongoose.model('Batch', Batch);

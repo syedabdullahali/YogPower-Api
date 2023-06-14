@@ -9,6 +9,13 @@ let ttcPDFDetails = new mongoose.Schema({
     documentType: String,
     docName:String,
     view: String,
+    empNameC:String,
+    employeeIDC:String,
+    employeeUniqIdC:String,
+    centerNameC:String,
+    centerCodeC:String,
+    adminNameC:String,
+    emIdback:String
 
 				
 					

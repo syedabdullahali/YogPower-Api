@@ -7,7 +7,14 @@ empID:String,
 empName:String,
 docName:String,
 docview:String,
-MemBerId:String
+MemBerId:String,
+empNameC:String,
+employeeIDC:String,
+employeeUniqIdC:String,
+centerNameC:String,
+centerCodeC:String,
+adminNameC:String,
+emIdback:String
 }, { timestamps: true })
 
 

@@ -22,6 +22,14 @@ let employeeAttentance = new mongoose.Schema({
     // Alert: String,
     // Branch: String,
     // centerId: String,
+    empNameC:String,
+    employeeIDC:String,
+    employeeUniqIdC:String,
+    centerNameC:String,
+    centerCodeC:String,
+    adminNameC:String,
+    emIdback:String
+
  
 }, { timestamps: true })
 
