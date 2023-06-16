@@ -55,6 +55,7 @@ router.get('/rights/:emailUniqId', async function (req, res) {
     }
 })
 
+
 router.post('/create', async (req, res) => {
     try {
         console.log(req.body)
