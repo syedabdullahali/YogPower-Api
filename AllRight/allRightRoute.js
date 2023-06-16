@@ -48,8 +48,12 @@ router.get('/:id', async function (req, res) {
 router.get('/rights/:emailUniqId', async function (req, res) {
     try {
         const response = await allRightModule.findOne({emailUniqId: req.params.emailUniqId })
-        if (!response) return res.status(400).send({ error: "You have to create rights" });
-        return res.status(200).json(response);
+        if (!response){
+             const response1 = await  signupModule.findById({ _id: req.params.emailUniqId })
+             return res.status(200).json({message:'Not found',data:response1});
+        }else{
+            return res.status(200).json( {message:'Successfull received',data:response});
+        }
     } catch (err) {
         return res.status(500).json({ error: err })
     }
