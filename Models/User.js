@@ -22,20 +22,14 @@ let Users = new mongoose.Schema({
     createrId:String,
     isAdmin:Boolean,
     packege:String,
-    centerDetails:{
-        profileLogo:String,
-        centerName:String,
-        centerCode:String,
-        partnerName:String,
-        contact:Number,
-        typeOfPartner:String,
-        location:String,
-        city:String,
-        country:String,
-        startDate:Date,
-        expDate:Date,
-        packege:String
-    }
+    typeOfPartner:String,
+    adminCity:String,
+    adminCountry:String,
+    adminlocation:String,
+    adminName:String,
+    brandLogo:String,
+    startDate:Date,
+    expDate:Date,
 }, { timestamps: true })
 
 module.exports = mongoose.model('Users', Users);
