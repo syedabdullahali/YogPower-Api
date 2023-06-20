@@ -27,6 +27,8 @@ let Users = new mongoose.Schema({
     brandLogo:String,
     startDate:Date,
     expDate:Date,
+    city:String,
+    country:String,
 }, { timestamps: true })
 
 module.exports = mongoose.model('Users', Users);
