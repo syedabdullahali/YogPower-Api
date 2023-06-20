@@ -21,7 +21,9 @@ router.post('/create', async (req, res) => {
     console.log(req.body.password)
 
     try {
-        let {password} = req.body;
+        let {username,email,profileLogo,center,centerCode,partnerName,typeOfPartner,location,
+             startDate,expDate,numberOfMY,typeOfNum,password,status,Designation,empName,empId,mobNo,
+             createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country} = req.body;
         //Checking if User Already Exists
         let found = await User.findOne({ email });
         if (found) return res.status(400).send({ error: "User already Exists" });
@@ -32,9 +34,9 @@ router.post('/create', async (req, res) => {
         password = hashed;
         // dashboardAccess = dashboardAccess.toLowerCase()
         //Creating a User
-        let temp = await new User({
-  ...req.body,
-  password,         
+        let temp = await new User({username,email,profileLogo,center,centerCode,partnerName,typeOfPartner,location,
+             startDate,expDate,numberOfMY,typeOfNum,password,status,Designation,empName,empId,mobNo,
+          createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country        
         });
         const response = await temp.save();
         return res.status(200).json(response);
