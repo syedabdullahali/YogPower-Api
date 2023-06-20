@@ -21,6 +21,7 @@ let Users = new mongoose.Schema({
     createdBy:String,
     createrId:String,
     isAdmin:Boolean,
+    packege:String,
     centerDetails:{
         profileLogo:String,
         centerName:String,
