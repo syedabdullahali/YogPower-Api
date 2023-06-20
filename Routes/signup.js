@@ -21,23 +21,7 @@ router.post('/create', async (req, res) => {
     console.log(req.body.password)
 
     try {
-        let {
-  username,
-  email,
-  password,
-  center,
-  centerCode,
-  status,
-  Designation,
-  empName,
-  empId,
-  mobNo,
-  MemBerId,
-  createdBy,
-  createrId,
-  isAdmin          
-
-        } = req.body;
+        let {password} = req.body;
         //Checking if User Already Exists
         let found = await User.findOne({ email });
         if (found) return res.status(400).send({ error: "User already Exists" });
@@ -49,20 +33,8 @@ router.post('/create', async (req, res) => {
         // dashboardAccess = dashboardAccess.toLowerCase()
         //Creating a User
         let temp = await new User({
-  username,
-  email,
-  password,
-  center,
-  centerCode,
-  status,
-  Designation,
-  empName,
-  empId,
-  mobNo,
-  MemBerId,
-  createdBy,
-  createrId,
-  isAdmin          
+  ...req.body,
+  password,         
         });
         const response = await temp.save();
         return res.status(200).json(response);
