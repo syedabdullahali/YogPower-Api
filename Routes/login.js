@@ -8,7 +8,7 @@ router.post('', async function (req, res) {
         let { email, password } = req.body;
         const user = await User.findOne({ email });
         if (user) {
-            valid = await bcrypt.compare(password, user.password);
+            let valid = await bcrypt.compare(password, user.password);
             if (!valid) {
                 res.status(400).send("Password not matched");
             } else {
@@ -28,6 +28,7 @@ router.post('', async function (req, res) {
                         expDate:user.expDate,
                         status:user.status,
                         brandLogo:user.brandLogo,
+                        package:user.package,
                     }
                 });
             }
