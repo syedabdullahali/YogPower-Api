@@ -20,11 +20,14 @@ router.post('', async function (req, res) {
                     token, user: {
                         username: user.username,
                         email: user.email,
-                        dashboardAccess: user.dashboardAccess,
                         center: user.center,
                         centerCode: user.centerCode,
                         emailUniqId:user._id,
-                        isAdmin:user.isAdmin
+                        isAdmin:user.isAdmin,
+                        startDate:user.startDate,
+                        expDate:user.expDate,
+                        status:user.status,
+                        brandLogo:user.brandLogo,
                     }
                 });
             }
