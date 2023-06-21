@@ -56,9 +56,9 @@ router.post('/create', async (req, res) => {
 
 router.post('/update/:email', async (req, res) => {
     try {
-        let {username,email,password,center,centerCode,
-             status,Designation,empName,empId,mobNo,
-             MemBerId,createdBy,createrId,isAdmin           
+        let {username,email,profileLogo,center,centerCode,partnerName,typeOfPartner,location,
+            startDate,expDate,numberOfMY,typeOfNum,password,status,Designation,empName,empId,mobNo,
+            createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country           
         } = req.body;
 
         let salt = await bcrypt.genSalt(5);
@@ -66,16 +66,14 @@ router.post('/update/:email', async (req, res) => {
         password = hashed;
 
         const response = await User.findByIdAndUpdate(req.params.email, 
-        {username,email,password,center,
-             centerCode,status,Designation,
-             empName,empId,mobNo, MemBerId,createdBy,
-             createrId,isAdmin          
-        });
+        {username,email,profileLogo,center,centerCode,partnerName,typeOfPartner,location,
+             startDate,expDate,numberOfMY,typeOfNum,password,status,Designation,empName,empId,mobNo,
+             createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country});
 
         const response1 = await  allRight.findOneAndUpdate({emailUniqId:req.params.email}, {
             email, 
             empId,
-            memBerId:MemBerId,
+            memBerId:memBerId,
             emailUniqId:req.params.email
         });
 
