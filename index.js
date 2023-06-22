@@ -5178,7 +5178,7 @@ app.delete('/allcalls/:id',async(req,res)=>{
 
 
 mongoose.set("strictQuery",false)
-mongoose.connect('mongodb+srv://admin:Sunny2798@sunnyapi.kndypoa.mongodb.net/Node-API?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://syedabdullahali380:9fJkmUzjpOmpWFre@cluster0.lrmiaui.mongodb.net/')
 .then(() =>{
     console.log('connected to MongoDB')
     app.listen(port,()=>{
