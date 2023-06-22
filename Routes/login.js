@@ -15,7 +15,6 @@ router.post('', async function (req, res) {
                 console.log("User loged in");
                 const token = jwt.sign({ _id: user._id,
                                         email: user.email, 
-                                        // dashboardAccess: user.dashboardAccess,
                                         center: user.center,
                                         centerCode: user.centerCode, 
                                        }, 'sdiohufvhbiehhidethisthing', {
@@ -29,11 +28,11 @@ router.post('', async function (req, res) {
                         centerCode: user.centerCode,
                         emailUniqId:user._id,
                         isAdmin:user.isAdmin,
-                        // startDate:user.startDate,
-                        // expDate:user.expDate,
-                        // status:user.status,
-                        // brandLogo:user.brandLogo,
-                        // package:user.package,
+                        startDate:user.startDate,
+                        expDate:user.expDate,
+                        status:user.status,
+                        brandLogo:user.brandLogo,
+                        package:user.package,
                     }
                 });
             }
