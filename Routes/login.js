@@ -15,7 +15,7 @@ router.post('', async function (req, res) {
                 console.log("User loged in");
                 const token = jwt.sign({ _id: user._id,
                                         email: user.email, 
-                                        dashboardAccess: user.dashboardAccess,
+                                        // dashboardAccess: user.dashboardAccess,
                                         center: user.center,
                                         centerCode: user.centerCode, 
                                        }, 'sdiohufvhbiehhidethisthing', {
