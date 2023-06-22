@@ -13,22 +13,27 @@ router.post('', async function (req, res) {
                 res.status(400).send("Password not matched");
             } else {
                 console.log("User loged in");
-                const token = jwt.sign({ _id: user._id, email: user.email, dashboardAccess: user.dashboardAccess, center: user.center, centerCode: user.centerCode, }, 'sdiohufvhbiehhidethisthing', {
+                const token = jwt.sign({ _id: user._id,
+                                        email: user.email, 
+                                        // dashboardAccess: user.dashboardAccess,
+                                        // center: user.center,
+                                        // centerCode: user.centerCode, 
+                                       }, 'sdiohufvhbiehhidethisthing', {
                     expiresIn: '45h'
                 });
                 res.header("auth-token", token).send({
                     token, user: {
                         username: user.username,
                         email: user.email,
-                        center: user.center,
-                        centerCode: user.centerCode,
+                        // center: user.center,
+                        // centerCode: user.centerCode,
                         emailUniqId:user._id,
                         isAdmin:user.isAdmin,
-                        startDate:user.startDate,
-                        expDate:user.expDate,
-                        status:user.status,
-                        brandLogo:user.brandLogo,
-                        package:user.package,
+                        // startDate:user.startDate,
+                        // expDate:user.expDate,
+                        // status:user.status,
+                        // brandLogo:user.brandLogo,
+                        // package:user.package,
                     }
                 });
             }
