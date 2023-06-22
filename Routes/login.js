@@ -5,8 +5,10 @@ const User = require('../Models/User');
 const jwt = require('jsonwebtoken');
 router.post('', async function (req, res) {
     try {
+        console.log(req.body)
         let { email, password } = req.body;
         const user = await User.findOne({ email });
+        console.log(user)
         if (user) {
             let valid = await bcrypt.compare(password, user.password);
             if (!valid) {
