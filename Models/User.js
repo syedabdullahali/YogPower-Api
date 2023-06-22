@@ -21,6 +21,7 @@ let Users = new mongoose.Schema({
     createrId:String,
     isAdmin:Boolean,
     isAdminPatner:Boolean,
+    isEmployee:Boolean,
     packege:String,
     typeOfPartner:String,
     location:String,
