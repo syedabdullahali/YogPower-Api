@@ -31,7 +31,9 @@ router.post('/create', async (req, res) => {
     try {
         let {username,email,profileLogo,center,centerCode,partnerName,typeOfPartner,location,isEmployee,
              startDate,expDate,numberOfMY,typeOfNum,password,status,Designation,empName,empId,mobNo,
-             createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country} = req.body;
+             createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country,
+             superAdminUniqId
+            } = req.body;
         //Checking if User Already Exists
         let found = await User.findOne({ email });
         if (found) return res.status(400).send({ error: "User already Exists" });
@@ -44,7 +46,7 @@ router.post('/create', async (req, res) => {
         //Creating a User
         let temp = await new User({username,email,profileLogo,center,centerCode,partnerName,typeOfPartner,location,
              startDate,expDate,numberOfMY,typeOfNum,password,status,Designation,empName,empId,mobNo,isEmployee,
-          createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country        
+          createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country,superAdminUniqId        
         });
         const response = await temp.save();
         return res.status(200).json(response);
@@ -58,7 +60,8 @@ router.post('/update/:email', async (req, res) => {
     try {
         let {username,email,profileLogo,center,centerCode,partnerName,typeOfPartner,location,
             startDate,expDate,numberOfMY,typeOfNum,password,status,Designation,empName,empId,mobNo,
-            createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country,isEmployee           
+            createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country,isEmployee ,
+            superAdminUniqId 
         } = req.body;
 
         let salt = await bcrypt.genSalt(5);
@@ -68,7 +71,7 @@ router.post('/update/:email', async (req, res) => {
         const response = await User.findByIdAndUpdate(req.params.email, 
         {username,email,profileLogo,center,centerCode,partnerName,typeOfPartner,location,
            isEmployee,  startDate,expDate,numberOfMY,typeOfNum,password,status,Designation,empName,empId,mobNo,
-             createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country});
+             createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country,superAdminUniqId});
 
         const response1 = await  allRight.findOneAndUpdate({emailUniqId:req.params.email}, {
             email, 
