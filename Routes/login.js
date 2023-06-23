@@ -35,7 +35,8 @@ router.post('', async function (req, res) {
                         status:user.status,
                         brandLogo:user.brandLogo,
                         package:user.package,
-                        createdBy:user.createdBy
+                        createdBy:user.createdBy,
+                        createrId:user.createrId
                     }
                 });
             }
