@@ -18,7 +18,7 @@ let Users = new mongoose.Schema({
     mobNo:Number,
     MemBerId:String,
     createdBy:String,
-    createrId:ObjectId,
+    createrId:String,
     isAdmin:Boolean,
     isAdminPatner:Boolean,
     isEmployee:Boolean,
@@ -30,7 +30,7 @@ let Users = new mongoose.Schema({
     expDate:Date,
     city:String,
     country:String,
-    superAdminUniqId:ObjectId,
+    superAdminUniqId:String,
 }, { timestamps: true })
 
 module.exports = mongoose.model('Users', Users);
