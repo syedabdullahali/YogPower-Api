@@ -29,7 +29,7 @@ router.post('/create', async (req, res) => {
     console.log(req.body.password)
 
     try {
-        let {username,email,profileLogo,center,centerCode,partnerName,typeOfPartner,location,
+        let {username,email,profileLogo,center,centerCode,partnerName,typeOfPartner,location,isEmployee,
              startDate,expDate,numberOfMY,typeOfNum,password,status,Designation,empName,empId,mobNo,
              createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country} = req.body;
         //Checking if User Already Exists
@@ -43,7 +43,7 @@ router.post('/create', async (req, res) => {
         // dashboardAccess = dashboardAccess.toLowerCase()
         //Creating a User
         let temp = await new User({username,email,profileLogo,center,centerCode,partnerName,typeOfPartner,location,
-             startDate,expDate,numberOfMY,typeOfNum,password,status,Designation,empName,empId,mobNo,
+             startDate,expDate,numberOfMY,typeOfNum,password,status,Designation,empName,empId,mobNo,isEmployee,
           createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country        
         });
         const response = await temp.save();
@@ -58,7 +58,7 @@ router.post('/update/:email', async (req, res) => {
     try {
         let {username,email,profileLogo,center,centerCode,partnerName,typeOfPartner,location,
             startDate,expDate,numberOfMY,typeOfNum,password,status,Designation,empName,empId,mobNo,
-            createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country           
+            createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country,isEmployee           
         } = req.body;
 
         let salt = await bcrypt.genSalt(5);
@@ -67,7 +67,7 @@ router.post('/update/:email', async (req, res) => {
 
         const response = await User.findByIdAndUpdate(req.params.email, 
         {username,email,profileLogo,center,centerCode,partnerName,typeOfPartner,location,
-             startDate,expDate,numberOfMY,typeOfNum,password,status,Designation,empName,empId,mobNo,
+           isEmployee,  startDate,expDate,numberOfMY,typeOfNum,password,status,Designation,empName,empId,mobNo,
              createdBy,createrId,isAdmin,isAdminPatner,packege,memBerId,brandLogo, city,country});
 
         const response1 = await  allRight.findOneAndUpdate({emailUniqId:req.params.email}, {
