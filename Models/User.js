@@ -30,6 +30,7 @@ let Users = new mongoose.Schema({
     expDate:Date,
     city:String,
     country:String,
+    superAdminUniqId:String,
 }, { timestamps: true })
 
 module.exports = mongoose.model('Users', Users);
