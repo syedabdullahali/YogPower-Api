@@ -28,11 +28,14 @@ router.post('', async function (req, res) {
                         centerCode: user.centerCode,
                         emailUniqId:user._id,
                         isAdmin:user.isAdmin,
+                        isAdminPatner:user.isAdminPatner,
+                        isEmployee:user.isEmployee,
                         startDate:user.startDate,
                         expDate:user.expDate,
                         status:user.status,
                         brandLogo:user.brandLogo,
                         package:user.package,
+                        createdBy:user.createdBy
                     }
                 });
             }
