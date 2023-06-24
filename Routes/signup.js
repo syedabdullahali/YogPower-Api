@@ -6,14 +6,9 @@ const User = require('../Models/User')
 const allRight = require('../AllRight/allRightModule')
 const userValidate = require('./jwt')
 
-router.get('/all', userValidate, async function (req, res) {
-    try {
-        const response = await User.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,memberForm)
+
 
 router.get('/center-patner', userValidate, async function (req, res) {
     try {
