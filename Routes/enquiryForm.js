@@ -2,15 +2,10 @@ const express = require('express')
 const router = express.Router()
 //modelName
 const enquiryForm = require('../Models/enquiryForm')
+const valiDateRouteFun = require('./valiDateRouteFun')
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await enquiryForm.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+valiDateRouteFun(router,enquiryForm)
+
 router.post('/create', async (req, res) => {
     try {
         const temp = await new enquiryForm(req.body)
