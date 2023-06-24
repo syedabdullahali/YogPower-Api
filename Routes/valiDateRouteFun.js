@@ -34,6 +34,6 @@ const valiDateRouteFun = (router,moduleSchema) => {
   
 }
 
-export default valiDateRouteFun
+module.exports = valiDateRouteFun
 
 
