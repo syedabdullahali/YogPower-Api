@@ -7,7 +7,7 @@ const allRight = require('../AllRight/allRightModule')
 const userValidate = require('./jwt')
 
 const valiDateRouteFun = require('./valiDateRouteFun')
-valiDateRouteFun(router,memberForm)
+valiDateRouteFun(router,User)
 
 
 router.get('/center-patner', userValidate, async function (req, res) {

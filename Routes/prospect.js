@@ -5,7 +5,7 @@ const prospect = require('../Models/prospect')
 
 const valiDateRouteFun = require('./valiDateRouteFun')
 
-valiDateRouteFun(router,memberForm)
+valiDateRouteFun(router,prospect)
 
 router.post('/create', async (req, res) => {
     try {
