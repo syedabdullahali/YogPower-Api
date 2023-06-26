@@ -6,8 +6,38 @@ const User = require('../Models/User')
 const allRight = require('../AllRight/allRightModule')
 const userValidate = require('./jwt')
 
-const valiDateRouteFun = require('./valiDateRouteFun')
-valiDateRouteFun(router,User)
+
+
+    router.get('/all', async function (req, res) {
+        try {
+            const response = await User.find()
+            return res.status(200).json(response);
+        } catch (err) {
+            return res.status(500).json({ error: err })
+        }
+    })
+    
+
+    router.get('/filter-by-employee/:employeeId', async function (req, res) {
+        const employeeId = req.params.employeeId;
+        try {
+            const response = await User.findById({_id:employeeId})
+            return res.status(200).json(response);
+        } catch (err) {
+            return res.status(500).json({ error: err })
+        }
+    })
+    
+    router.get('/filter-by-admin/:partnerAdminId', async function (req, res) {
+        const partnerAdminId = req.params.partnerAdminId;
+        try {
+            const response = await User.find({createrId: partnerAdminId})
+            return res.status(200).json(response);
+        } catch (err) {
+            return res.status(500).json({ error: err })
+        }
+    })
+    
 
 
 router.get('/center-patner', userValidate, async function (req, res) {
