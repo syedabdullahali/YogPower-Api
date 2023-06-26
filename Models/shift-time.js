@@ -17,13 +17,13 @@ const shiftTimeSchema=new mongoose.Schema({
      centerCode:{
         type:String
      },
-     empNameC:String,
-     employeeIDC:String,
-     employeeUniqIdC:String,
-     centerNameC:String,
-     centerCodeC:String,
-     adminNameC:String,
-     emIdback:String
+    empNameC:String,
+    employeeIDC:String,
+    employeeMongoId: mongoose.Schema.Types.ObjectId,
+    partnerAdminMongoId: mongoose.Schema.Types.ObjectId,
+    centerNameC:String,
+    centerCodeC:String,
+    adminNameC:String,
 })
 
 const shiftTimeModel=mongoose.model('shift-time-schedule', shiftTimeSchema)

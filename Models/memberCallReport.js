@@ -12,14 +12,13 @@ let memBerCallReports = new mongoose.Schema({
     memberId:String,
     clientName:String,
     phone:Number,
-    empolyeeId:String,
     empNameC:String,
     employeeIDC:String,
-    employeeUniqIdC:String,
+    employeeMongoId: mongoose.Schema.Types.ObjectId,
+    partnerAdminMongoId: mongoose.Schema.Types.ObjectId,
     centerNameC:String,
     centerCodeC:String,
     adminNameC:String,
-    emIdback:String
 }, { timestamps: true })
 
 

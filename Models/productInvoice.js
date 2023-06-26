@@ -49,13 +49,13 @@ let productInvoice = new mongoose.Schema({
         }    
         }       
        ],
-       empNameC:String,
-       employeeIDC:String,
-       employeeUniqIdC:String,
-       centerNameC:String,
-       centerCodeC:String,
-       adminNameC:String,
-       emIdback:String
+   empNameC:String,
+    employeeIDC:String,
+    employeeMongoId: mongoose.Schema.Types.ObjectId,
+    partnerAdminMongoId: mongoose.Schema.Types.ObjectId,
+    centerNameC:String,
+    centerCodeC:String,
+    adminNameC:String,
 }, { timestamps: true })
 
 module.exports = mongoose.model('productInvoice', productInvoice);

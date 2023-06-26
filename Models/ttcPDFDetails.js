@@ -11,14 +11,11 @@ let ttcPDFDetails = new mongoose.Schema({
     view: String,
     empNameC:String,
     employeeIDC:String,
-    employeeUniqIdC:String,
+    employeeMongoId: mongoose.Schema.Types.ObjectId,
+    partnerAdminMongoId: mongoose.Schema.Types.ObjectId,
     centerNameC:String,
     centerCodeC:String,
-    adminNameC:String,
-    emIdback:String
-
-				
-					
+    adminNameC:String,							
 }, { timestamps: true })
 
 module.exports = mongoose.model('ttcPDFDetails', ttcPDFDetails);

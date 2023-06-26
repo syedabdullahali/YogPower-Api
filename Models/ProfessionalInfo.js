@@ -18,11 +18,11 @@ let professionalinfo = new mongoose.Schema({
     address: String,
     empNameC:String,
     employeeIDC:String,
-    employeeUniqIdC:String,
+    employeeMongoId: mongoose.Schema.Types.ObjectId,
+    partnerAdminMongoId: mongoose.Schema.Types.ObjectId,
     centerNameC:String,
     centerCodeC:String,
     adminNameC:String,
-    emIdback:String
 }, { timestamps: true })
 
 module.exports = mongoose.model('professionalinfos', professionalinfo);

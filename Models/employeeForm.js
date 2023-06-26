@@ -44,11 +44,11 @@ let employeeForms = new mongoose.Schema({
     trainerStatus:Boolean,
     empNameC:String,
     employeeIDC:String,
-    employeeUniqIdC:String,
+    employeeMongoId: mongoose.Schema.Types.ObjectId,
+    partnerAdminMongoId: mongoose.Schema.Types.ObjectId,
     centerNameC:String,
     centerCodeC:String,
     adminNameC:String,
-    emIdback:String
 }, { timestamps: true })
 
 const EmployeeForm = mongoose.model('EmployeeForm', employeeForms);
