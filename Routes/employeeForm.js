@@ -3,16 +3,9 @@ const router = express.Router()
 
 const employeeForm = require('../Models/employeeForm')
 
-router.get('/all',async function (req,res) {
+const valiDateRouteFunEmp = require('./valiDateRouteFun')
 
-try{
-    const response = await employeeForm.find()
-    return res.status(200).json(response)  
-} catch (err){
-     return res.status(500).json({error:err})
-}
-
-} )
+valiDateRouteFunEmp(router,employeeForm)
 
 router.post('/create', async (req, res) => {
     try {
