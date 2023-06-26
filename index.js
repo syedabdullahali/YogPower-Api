@@ -196,6 +196,7 @@ app.use('/ttcPDFDetails',userValidate,require('./Routes/ttcPDFDetails'))
 app.use('/empleaveList',userValidate,require('./Routes/empleaveList'))
 app.use('/allRight',userValidate,require('./AllRight/allRightRoute'))
 app.use('/center-partner',userValidate,require('./Master/CenterPartner/centerPartnerRoute'))
+app.use('/employeeForm',userValidate,require('./Routes/employeeForm'))
 
 
 
