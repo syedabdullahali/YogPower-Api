@@ -3,14 +3,8 @@ const router = express.Router()
 //modelName
 const ttcVideo = require('../Models/ttcVideo')
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await ttcVideo.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,ttcVideo)
 
 router.post('/create', async (req, res) => {
     try {

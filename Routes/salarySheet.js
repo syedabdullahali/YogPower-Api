@@ -4,14 +4,8 @@ const router = express.Router()
 const salarySheet = require('../Models/salarySheet')
 
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await salarySheet.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router, salarySheet)
 
 router.get('/emp/:id', async function (req, res) {
 

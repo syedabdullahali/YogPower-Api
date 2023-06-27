@@ -3,14 +3,9 @@ const router = express.Router()
 //modelName
 const individualMember = require('../Models/individualMember')
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await individualMember.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,individualMember)
+
 
 router.post('/create', async (req, res) => {
     try {

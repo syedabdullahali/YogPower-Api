@@ -3,14 +3,8 @@ const holidayListMaster = require('../Models/holidayListMaster');
 const router = express.Router()
 //modelName
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await holidayListMaster.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,holidayListMaster)
 
 router.post('/create', async (req, res) => {
     try {

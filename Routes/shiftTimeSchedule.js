@@ -4,16 +4,8 @@ const router = express.Router()
 //modelNam
 
 
-router.get('/all',async function (req,res) {
-
-try{
-    const response = await shiftTimeSchedule.find()
-    return res.status(200).json(response)  
-} catch (err){
-     return res.status(500).json({error:err})
-}
-
-} )
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router, shiftTimeSchedule)
 
 router.post('/create', async (req, res) => {
     try {
@@ -25,6 +17,7 @@ router.post('/create', async (req, res) => {
         return res.status(500).json({ error: err })
     }
 });
+
 
 router.get('/:id', async function (req, res) {
     try {

@@ -3,6 +3,9 @@ const router = express.Router()
 //modelName
 const designation = require('../Models/Designation')
 
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,designation)
+
 router.get('/all', async function (req, res) {
     try {
         const response = await designation.find()

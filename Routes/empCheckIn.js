@@ -3,14 +3,9 @@ const router = express.Router()
 //modelName
 const empCheckIn = require('../Models/empCheckIn')
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await empCheckIn.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,empCheckIn)
 
 
 router.get('/emp/:id', async function (req, res) {

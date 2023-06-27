@@ -6,14 +6,9 @@ const leaveSetUpMaster = require('../Models/leaveSetUpMaster')
 const employee = require('../Models/employeeForm')
 
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await empleaveList.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router, empleaveList)
 
 
 

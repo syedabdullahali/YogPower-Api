@@ -3,14 +3,8 @@ const router = express.Router()
 //modelName
 const trainerSalarySlip = require('../Models/trainerSalarySlip')
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await trainerSalarySlip.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,trainerSalarySlip)
 
 router.post('/create', async (req, res) => {
     try {

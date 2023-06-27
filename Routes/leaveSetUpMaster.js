@@ -3,14 +3,8 @@ const router = express.Router()
 //modelName
 const leaveSetUpMaster = require('../Models/leaveSetUpMaster')
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await leaveSetUpMaster.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,  leaveSetUpMaster)
 
 router.post('/create', async (req, res) => {
     try {

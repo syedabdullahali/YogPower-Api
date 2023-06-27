@@ -3,6 +3,9 @@ const router = express.Router()
 //modelName
 const Companyprofile = require('../Models/Companyprofile')
 
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,Companyprofile)
+
 router.get('/all', async function (req, res) {
     try {
         const response = await Companyprofile.find()

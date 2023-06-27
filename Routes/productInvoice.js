@@ -2,16 +2,8 @@ const express = require('express');
 const productInvoice = require('../Models/productInvoice')
 const router = express.Router()
 
-router.get('/all',async function (req,res) {
-
-try{
-    const response = await productInvoice.find()
-    return res.status(200).json(response)  
-} catch (err){
-     return res.status(500).json({error:err})
-}
-
-} )
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router, productInvoice)
 
 router.post('/create', async (req, res) => {
     try {

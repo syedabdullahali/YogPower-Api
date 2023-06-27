@@ -3,14 +3,10 @@ const router = express.Router()
 //modelName
 const brandlogoupdate = require('../Models/brandlogoupdate')
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await brandlogoupdate.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+
+const valiDateRouteFun = require('./valiDateRouteFun')
+
+valiDateRouteFun(router,brandlogoupdate)
 
 router.post('/create', async (req, res) => {
     try {

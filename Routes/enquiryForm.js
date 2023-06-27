@@ -6,6 +6,8 @@ const valiDateRouteFun = require('./valiDateRouteFun')
 
 valiDateRouteFun(router,enquiryForm)
 
+
+
 router.post('/create', async (req, res) => {
     try {
         const temp = await new enquiryForm(req.body)

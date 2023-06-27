@@ -3,14 +3,8 @@ const router = express.Router()
 //modelName
 const Document = require('../Models/Document')
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await Document.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,Document)
 
 router.get('/:id', async function (req, res) {
     try {

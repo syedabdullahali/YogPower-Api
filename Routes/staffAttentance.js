@@ -3,15 +3,8 @@ const staffAttendance = require('../Models/staffAttendance');
 const router = express.Router()
 //modelName
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await staffAttendance.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
-
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,staffAttendance)
 
 router.get('/emp/:id', async function (req, res) {
 

@@ -3,14 +3,8 @@ const router = express.Router()
 //modelName
 const tcClinetCertificate = require('../Models/tcClinetCertificate')
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await tcClinetCertificate.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,tcClinetCertificate)
 
 router.post('/create', async (req, res) => {
     try {

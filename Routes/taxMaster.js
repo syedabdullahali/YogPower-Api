@@ -3,14 +3,8 @@ const taxMaster = require('../Models/taxMaster');
 const router = express.Router()
 //modelName
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await taxMaster.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,taxMaster)
 
 router.post('/create', async (req, res) => {
     try {

@@ -3,6 +3,10 @@ const clientAttendance = require('../Models/clientAttendance');
 const router = express.Router()
 //modelName
 
+
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,clientAttendance)
+
 router.get('/all', async function (req, res) {
     try {
         const response = await clientAttendance.find()

@@ -3,14 +3,8 @@ const router = express.Router()
 //modelName
 const ProfessionalInfo = require('../Models/ProfessionalInfo')
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await ProfessionalInfo.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router,  ProfessionalInfo)
 
 router.get('/:id', async function (req, res) {
     try {

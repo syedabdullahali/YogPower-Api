@@ -3,14 +3,9 @@ const router = express.Router()
 //modelName
 const Batch = require('../Models/Batch')
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await Batch.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+const valiDateRouteFun = require('./valiDateRouteFun')
+
+valiDateRouteFun(router,Batch)
 
 router.post('/create', async (req, res) => {
     try {

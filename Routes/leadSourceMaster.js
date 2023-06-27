@@ -3,14 +3,10 @@ const leadSourceMaster = require('../Models/leadSourceMaster');
 const router = express.Router()
 //modelName
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await leadSourceMaster.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
+const valiDateRouteFun = require('./valiDateRouteFun')
+valiDateRouteFun(router, leadSourceMaster)
+
+
 
 router.post('/create', async (req, res) => {
     try {
