@@ -198,6 +198,12 @@ app.use('/allRight',userValidate,require('./AllRight/allRightRoute'))
 app.use('/center-partner',userValidate,require('./Master/CenterPartner/centerPartnerRoute'))
 app.use('/employeeForm',userValidate,require('./Routes/employeeForm'))
 app.use('/clientSupport',userValidate,require('./NewRoutes/clientSupport'))
+app.use('/upgradeCalls',userValidate,require('./NewRoutes/upgradeCalls'))
+app.use('/crosssaleCalls',userValidate,require('./NewRoutes/crosssaleCalls'))
+app.use('/renewalsCalls',userValidate,require('./NewRoutes/renewalsCalls'))
+
+
+
 
 
 
