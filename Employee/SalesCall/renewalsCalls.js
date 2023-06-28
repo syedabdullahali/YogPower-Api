@@ -34,7 +34,15 @@ const RenewalsCallsSchema = mongoose.Schema(
         },
         Member_Id:{
          type: String,
-        }
+        },
+        empNameC:String,
+        employeeIDC:String,
+        employeeMongoId: mongoose.Schema.Types.ObjectId,
+        partnerAdminMongoId: mongoose.Schema.Types.ObjectId,
+        centerNameC:String,
+        centerCodeC:String,
+        adminNameC:String,
+
     },
 )
 
