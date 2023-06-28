@@ -201,6 +201,16 @@ app.use('/clientSupport',userValidate,require('./NewRoutes/clientSupport'))
 app.use('/upgradeCalls',userValidate,require('./NewRoutes/upgradeCalls'))
 app.use('/crosssaleCalls',userValidate,require('./NewRoutes/crosssaleCalls'))
 app.use('/renewalsCalls',userValidate,require('./NewRoutes/renewalsCalls'))
+app.use('/employeeTargetSheet',userValidate,require('./NewRoutes/employeeTargetSheet'))
+app.use('/callsTarget',userValidate,require('./NewRoutes/callsTarget'))
+app.use('/clientTarget',userValidate,require('./NewRoutes/clientTarget'))
+app.use('/salesTarget',userValidate,require('./NewRoutes/salesTarget'))
+app.use('/leadsTarget',userValidate,require('./NewRoutes/leadsTarget'))
+app.use('/renewalsTarget',userValidate,require('./NewRoutes/renewalsTarget'))
+app.use('/referralsLeadstarget',userValidate,require('./NewRoutes/referralsLeadstarget'))
+app.use('/mediaTarget',userValidate,require('./NewRoutes/mediaTarget'))
+
+
 
 
 
