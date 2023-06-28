@@ -50,8 +50,14 @@ const mediaTargetSchema = mongoose.Schema(
                 }
             }
             
-        ]
-
+        ],
+        empNameC:String,
+        employeeIDC:String,
+        employeeMongoId: mongoose.Schema.Types.ObjectId,
+        partnerAdminMongoId: mongoose.Schema.Types.ObjectId,
+        centerNameC:String,
+        centerCodeC:String,
+        adminNameC:String,
     },
     
 )
