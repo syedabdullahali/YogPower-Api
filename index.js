@@ -209,6 +209,11 @@ app.use('/leadsTarget',userValidate,require('./NewRoutes/leadsTarget'))
 app.use('/renewalsTarget',userValidate,require('./NewRoutes/renewalsTarget'))
 app.use('/referralsLeadstarget',userValidate,require('./NewRoutes/referralsLeadstarget'))
 app.use('/mediaTarget',userValidate,require('./NewRoutes/mediaTarget'))
+app.use('/allDietClient',userValidate,require('./NewRoutes/allDietClient'))
+app.use('/dietPlanTempLate',userValidate,require('./NewRoutes/dietPlanTempLate'))
+
+
+
 
 
 
