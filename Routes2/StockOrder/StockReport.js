@@ -106,19 +106,43 @@ const dailyStockReport = (data1,data2)=>{
 }
 
 
-router.get('/daily-stock-report',async(req,res)=>{
+router.get('/daily-stock-report/all',async(req,res)=>{
     try{
         const receivedStockList = await StockOrderList.find({"Status": "Recevied"})
         const soldStockList = await StockOrderList.find({"Status": "Sold"})
 
        
-        res.status(200).json(dailyStockReport(receivedStockList,soldStockList))
+        return   res.status(200).json(dailyStockReport(receivedStockList,soldStockList))
     }
     catch(err){
-        res.status(500).json({message:err.message})
+      return  res.status(500).json({message:err.message})
     }
 })
 
+
+router.get('/daily-stock-report/filter-by-employee/:employeeId', async function (req, res) {
+       const employeeId = req.params.employeeId;
+  try {
+      const receivedStockList = await StockOrderList.find({"Status": "Recevied",employeeMongoId: employeeId})
+      const soldStockList = await StockOrderList.find({"Status": "Sold",employeeMongoId: employeeId})
+  
+      return res.status(200).json(dailyStockReport(receivedStockList,soldStockList))
+  } catch (err) {
+       return res.status(500).json({ error: err })
+  }
+})
+
+
+router.get('/daily-stock-report/filter-by-admin/:partnerAdminId', async function (req, res) {
+  const partnerAdminId = req.params.partnerAdminId;
+  try {
+    const receivedStockList = await StockOrderList.find({"Status": "Recevied",partnerAdminMongoId: partnerAdminId})
+    const soldStockList = await StockOrderList.find({"Status": "Sold",partnerAdminMongoId: partnerAdminId})
+    return res.status(200).json(dailyStockReport(receivedStockList,soldStockList))
+  } catch (err) {
+      return res.status(500).json({ error: err })
+  }
+})
 
 
 
