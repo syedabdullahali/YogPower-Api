@@ -12,34 +12,107 @@ router.post('/create',async(req,res)=>{
     }
  })
 
-router.get('/all',async(req,res)=>{
+
+router.get('/all-order/all',async(req,res)=>{
     try{
         const  stockOrderList= await  StockOrderList.find({"Status": "Not Recevied yet"});
         res.status(200).json( stockOrderList);
     }catch(error){
-        res.status(5009).json({message:error.message})
+        res.status(500).json({message:error.message})
+    }
+})
+
+router.get('/all-order/filter-by-employee/:employeeId', async function (req, res) {
+    const employeeId = req.params.employeeId;
+    try {
+        const response = await StockOrderList.find({employeeMongoId: employeeId,"Status": "Not Recevied yet"})
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
+router.get('/all-order/filter-by-admin/:partnerAdminId', async function (req, res) {
+    const partnerAdminId = req.params.partnerAdminId;
+    try {
+        const response = await StockOrderList.find({partnerAdminMongoId: partnerAdminId,"Status": "Not Recevied yet"})
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
     }
 })
 
 
-router.get('/recevied',async(req,res)=>{
+// Recived All Route 
+
+router.get('/recevied/all',async(req,res)=>{
     try{
         const  stockOrderList= await  StockOrderList.find({"Status": "Recevied"});
         res.status(200).json( stockOrderList);
     }catch(error){
-        res.status(5009).json({message:error.message})
+        res.status(500).json({message:error.message})
     }
 })
 
-router.get('/sold',async(req,res)=>{
+
+router.get('/recevied/filter-by-employee/:employeeId', async function (req, res) {
+    const employeeId = req.params.employeeId;
+    try {
+        const response = await StockOrderList.find({"Status": "Recevied",employeeMongoId: employeeId})
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
+ 
+router.get('/recevied/filter-by-admin/:partnerAdminId', async function (req, res) {
+    const partnerAdminId = req.params.partnerAdminId;
+    try {
+        const response = await StockOrderList.find({"Status": "Recevied",partnerAdminMongoId: partnerAdminId})
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
+// Sold All Route 
+
+router.get('/sold/all',async(req,res)=>{
     try{
         const  stockOrderList= await  StockOrderList.find({"Status": "Sold"});
         res.status(200).json( stockOrderList);
     }catch(error){
-        res.status(5009).json({message:error.message})
+        res.status(500).json({message:error.message})
     }
 })
 
+
+router.get('/sold/filter-by-employee/:employeeId', async function (req, res) {
+    const employeeId = req.params.employeeId;
+    try {
+        const response = await StockOrderList.find({"Status": "Sold",employeeMongoId: employeeId})
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
+router.get('/sold/filter-by-admin/:partnerAdminId', async function (req, res) {
+    const partnerAdminId = req.params.partnerAdminId;
+    try {
+        const response = await StockOrderList.find({"Status": "Sold",partnerAdminMongoId: partnerAdminId})
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
+
+
+
+
+ 
 
 router.get('/:id',async(req,res)=>{
     try{
@@ -50,8 +123,6 @@ router.get('/:id',async(req,res)=>{
         res.status(500).json({message:error.message})
     }
 })
-
-
 
 
 
