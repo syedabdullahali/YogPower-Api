@@ -22,8 +22,13 @@ const DietPlanTemplateSchema = mongoose.Schema(
             type: String,
             required: true
         },
-       
-        
+        empNameC:String,
+        employeeIDC:String,
+        employeeMongoId: mongoose.Schema.Types.ObjectId,
+        partnerAdminMongoId: mongoose.Schema.Types.ObjectId,
+        centerNameC:String,
+        centerCodeC:String,
+        adminNameC:String,
     },
 )
 
