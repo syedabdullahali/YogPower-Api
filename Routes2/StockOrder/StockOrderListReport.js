@@ -69,7 +69,7 @@ router.get('/all', async(req, res) => {
     }
 })
 
-router.get('/:Product_Category',async(req,res)=>{
+router.get('/all/:Product_Category',async(req,res)=>{
     try{
         const {Product_Category} = req.params;
 
@@ -80,6 +80,29 @@ router.get('/:Product_Category',async(req,res)=>{
         res.status(500).json({message:error.message})
     }
 })
+
+router.get('/filter-by-employee/:employeeId/:Product_Category', async function (req, res) {
+    const {Product_Category} = req.params;
+    const employeeId = req.params.employeeId;
+    try {
+        const response = await StockOrderList.find({employeeMongoId: employeeId,Product_Category:Product_Category,StatOfStock:'InStock'})
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
+router.get('/filter-by-admin/:partnerAdminId/:Product_Category', async function (req, res) {
+    const {Product_Category} = req.params;
+    const partnerAdminId = req.params.partnerAdminId;
+    try {
+        const response = await StockOrderList.find({partnerAdminMongoId: partnerAdminId,Product_Category:Product_Category,StatOfStock:'InStock'})
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
 
 
 
