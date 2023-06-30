@@ -211,6 +211,8 @@ app.use('/referralsLeadstarget',userValidate,require('./NewRoutes/referralsLeads
 app.use('/mediaTarget',userValidate,require('./NewRoutes/mediaTarget'))
 app.use('/allDietClient',userValidate,require('./NewRoutes/allDietClient'))
 app.use('/dietPlanTempLate',userValidate,require('./NewRoutes/dietPlanTempLate'))
+app.use('/callender',userValidate,require('./NewRoutes/calender'))
+
 
 
 
