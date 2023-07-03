@@ -214,6 +214,8 @@ app.use('/dietPlanTempLate',userValidate,require('./NewRoutes/dietPlanTempLate')
 app.use('/callender',userValidate,require('./NewRoutes/calender'))
 app.use('/stockAssigning',userValidate,require('./NewRoutes/stockAssigning'))
 app.use('/impCallList',userValidate,require('./NewRoutes/impCallList'))
+app.use('/allSupplierList',userValidate,require('./NewRoutes/allSupplierList'))
+
 
 
 
