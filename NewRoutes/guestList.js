@@ -1,13 +1,11 @@
 const express = require('express');
-const guestList = require('../Inventory/guestList/guestList');
+const guestList = require('../Inventory/IMPCallList/guestList');
 const router = express.Router()
 //modelName
 
 
 const valiDateRouteFun = require('../Routes/valiDateRouteFun')
 valiDateRouteFun(router,guestList)
-
-
 
 router.post('/create', async (req, res) => {
     try {
