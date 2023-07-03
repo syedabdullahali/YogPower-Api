@@ -213,6 +213,8 @@ app.use('/allDietClient',userValidate,require('./NewRoutes/allDietClient'))
 app.use('/dietPlanTempLate',userValidate,require('./NewRoutes/dietPlanTempLate'))
 app.use('/callender',userValidate,require('./NewRoutes/calender'))
 app.use('/stockAssigning',userValidate,require('./NewRoutes/stockAssigning'))
+app.use('/impCallList',userValidate,require('./NewRoutes/impCallList'))
+
 
 
 
