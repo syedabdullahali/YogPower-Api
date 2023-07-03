@@ -9,6 +9,7 @@ const GuestListSchema = mongoose.Schema(
         category: String, 
         address: String, 
         company: String,
+        event: String,
         empNameC:String,
         employeeIDC:String,
         employeeMongoId: mongoose.Schema.Types.ObjectId,
