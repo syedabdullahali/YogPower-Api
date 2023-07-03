@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const IMPCallListSchema = mongoose.Schema(
+constimpCallList = mongoose.Schema(
     {
         Sr_No: {
             type: String,
@@ -34,7 +34,7 @@ const IMPCallListSchema = mongoose.Schema(
     },
 )
 
-const IMPCallList = mongoose.model('IMPCallList', IMPCallListSchema);
+const impCallList = mongoose.model('impCallList',impCallList);
 
 
-module.exports = IMPCallList;
+module.exports = impCallList;
