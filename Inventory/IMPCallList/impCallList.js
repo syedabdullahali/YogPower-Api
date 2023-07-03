@@ -4,31 +4,24 @@ const IMPCallListSchema = mongoose.Schema(
     {
         Sr_No: {
             type: String,
-            required: true,
         },
         Name: {
             type: String,
-            required: true,
         },
         Mobile: {
-            type: String,
-            required: true
+            type: String
         },
         Email_Id: {
-            type: String,
-            required: true
+            type: String
         },
         Address: {
-            type: String,
-            required: true
+            type: String
         },
         Category: {
-            type: String,
-            required: true
+            type: String
         },
         Company_Name: {
-            type: String,
-            required: true
+            type: String
         },
         empNameC:String,
         employeeIDC:String,
