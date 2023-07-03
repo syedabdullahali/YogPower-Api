@@ -1,5 +1,5 @@
 const express = require('express');
-const allSupplierList = require('../Inventory/allSupplierList/allSupplierList');
+const allSupplierList = require('../Inventory/IMPCallList/allSupplierList');
 const router = express.Router()
 //modelName
 
