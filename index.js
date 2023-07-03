@@ -218,18 +218,6 @@ app.use('/stockAssigning',userValidate,require('./Inventory/StockAssigning/stock
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 //admin router
 const adminRoute=require('./Routes/shift-time')
 app.use('/',adminRoute)
