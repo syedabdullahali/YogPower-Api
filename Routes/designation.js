@@ -6,14 +6,6 @@ const designation = require('../Models/Designation')
 const valiDateRouteFun = require('./valiDateRouteFun')
 valiDateRouteFun(router,designation)
 
-router.get('/all', async function (req, res) {
-    try {
-        const response = await designation.find()
-        return res.status(200).json(response);
-    } catch (err) {
-        return res.status(500).json({ error: err })
-    }
-})
 
 router.post('/create', async (req, res) => {
     try {
