@@ -19,15 +19,14 @@ router.get('/emp/:id', async function (req, res) {
 })
 
 
-router.get('/report', async function (req, res) {
-    try {
-        const response = await staffAttendance.find({status:'Done'})
-        const data = response.filter((el)=>Boolean(el.classesId))
+const handleStaffReport = (response)=>{
+
+    const data = response.filter((el)=>Boolean(el.classesId))
 
                 const uniqObj = []
 
 
-               data.forEach((el,i) => {
+         data.forEach((el,i) => {
              if(!uniqObj.some((el2)=>el?.classesId===el2?.classesId&&el?.staffId===el2?.staffId&&
                               el2?.month===new Date(el.checkDate).getMonth()&&el2?.year===new Date(el.checkDate).getFullYear())){
                   uniqObj.push({classesId:el.classesId,staffId:el.staffId,month:new Date(el.checkDate)
@@ -45,7 +44,34 @@ router.get('/report', async function (req, res) {
              }
            });  
 
-        return res.status(200).json(uniqObj);
+           return uniqObj
+}
+
+router.get('/report/all', async function (req, res) {
+    try {
+        const response = await staffAttendance.find({status:'Done'})
+        return res.status(200).json(handleStaffReport(response));
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
+
+router.get('/report/filter-by-employee/:employeeId', async function (req, res) {
+    const employeeId = req.params.employeeId;
+    try {
+        const response = await staffAttendance.find({status:'Done',employeeMongoId: employeeId})
+        return res.status(200).json(handleStaffReport(response));
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
+router.get('/report/filter-by-admin/:partnerAdminId', async function (req, res) {
+    const partnerAdminId = req.params.partnerAdminId;
+    try {
+        const response = await staffAttendance.find({status:'Done',partnerAdminMongoId: partnerAdminId})
+        return res.status(200).json(handleStaffReport(response));
     } catch (err) {
         return res.status(500).json({ error: err })
     }
