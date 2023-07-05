@@ -29,7 +29,7 @@ router.get('/:id', async function (req, res) {
     }
 })
 
-router.get('/classes/:typeOFBatchClasses', async (req, res) => {
+router.get('/classes/all/:typeOFBatchClasses', async (req, res) => {
     try {   
         const {typeOFBatchClasses} = req.params;
         const response = await  memberForm.find({typeOFBatchClasses:typeOFBatchClasses})
@@ -38,6 +38,31 @@ router.get('/classes/:typeOFBatchClasses', async (req, res) => {
         return res.status(500).json({ error: err })
     }
 });
+
+router.get('/classes/filter-by-employee/:employeeId/:typeOFBatchClasses', async (req, res) => {
+    try {   
+        const {typeOFBatchClasses} = req.params;
+        const employeeId = req.params.employeeId;
+
+        const response = await  memberForm.find({typeOFBatchClasses:typeOFBatchClasses,employeeMongoId: employeeId})
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+});
+
+router.get('/classes/filter-by-admin/:partnerAdminId/:typeOFBatchClasses', async (req, res) => {
+    try {   
+        const {typeOFBatchClasses} = req.params;
+        const partnerAdminId = req.params.partnerAdminId;
+
+        const response = await  memberForm.find({typeOFBatchClasses:typeOFBatchClasses,partnerAdminMongoId: partnerAdminId})
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+});
+
 
 router.get('/attendance/:AttendanceID', async function (req, res) {
     try {
