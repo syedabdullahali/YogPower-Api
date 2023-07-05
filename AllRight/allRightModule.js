@@ -436,6 +436,7 @@ let allRightModule = new mongoose.Schema({
     }
   },
   erpCourse:{
+    eximpRights:[],
     value:Boolean,
     items:{
         erpTTCClients:{
@@ -457,6 +458,7 @@ let allRightModule = new mongoose.Schema({
     }
 
   }
+
  }
 }, { timestamps: true })
 
