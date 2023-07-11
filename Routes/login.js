@@ -10,7 +10,7 @@ router.post('', async function (req, res) {
         
         const user = await User.findOne({ email });
 
-        if(!user.isAdmin && !user.isAdminPatner){
+        if(user.isAdmin===false && user.isAdminPatner===false){
             const user2 = await User.findOne({ createdBy });
             logo = user2.brandLogo
         }else{
