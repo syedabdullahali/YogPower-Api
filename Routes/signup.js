@@ -115,6 +115,17 @@ router.post('/update/:email', async (req, res) => {
     }
 })
 
+router.patch('/update/logo/:email', async (req, res) => {
+    try {
+        let {brandLogo} = req.body;
+        const response = await User.findByIdAndUpdate(req.params.email, {brandLogo});
+        return res.status(200).json(response)
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
+
+
 
 router.delete('/delete/:id', userValidate, async (req, res) => {
     try {
