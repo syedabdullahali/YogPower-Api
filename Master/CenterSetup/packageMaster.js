@@ -4,45 +4,41 @@ const packageMasterSchema = mongoose.Schema(
     {
         Sr_No: {
             type: String,
-            required: true,
         },
          username: {
             type: String,
-            required: true,
         },
         Service: {
             type: String,
-            required: true,
         },
         Variation: {
             type: String,
-            required: true,
         },
         Package_Name: {
             type: String,
-            required: true,
         },
         Duration: {
             type: String,
-            required: true
         },
         Fees: {
             type: String,
-            required: true
         },
         Status: {
             type: Boolean,
-            required: true
         },
         Action: {
             type: String,
-            required: true
         },
         Days: {
             type: String,
-            required: true
         },
-        
+        empNameC:String,
+        employeeIDC:String,
+        employeeMongoId: mongoose.Schema.Types.ObjectId,
+        partnerAdminMongoId: mongoose.Schema.Types.ObjectId,
+        centerNameC:String,
+        centerCodeC:String,
+        adminNameC:String,        
     },
 )
 

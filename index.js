@@ -218,7 +218,7 @@ app.use('/allSupplierList',userValidate,require('./NewRoutes/allSupplierList'))
 app.use('/guestList',userValidate,require('./NewRoutes/guestList'))
 app.use('/dailyExpence',userValidate,require('./NewRoutes/dailyExpence'))
 app.use('/pettyCash',userValidate,require('./NewRoutes/pettyCash'))
-
+app.use('/packageMaster',userValidate,require('./Routes/packageMaster'))
 
 
 
