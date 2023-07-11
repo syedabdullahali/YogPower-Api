@@ -42,7 +42,7 @@ const packageMasterSchema = mongoose.Schema(
     },
 )
 
-const PackageMaster = mongoose.model('PackageMaster', packageMasterSchema);
+const PackageMasterC = mongoose.model('PackageMaster', packageMasterSchema);
 
 
-module.exports = PackageMaster;
+module.exports = PackageMasterC;
