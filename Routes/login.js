@@ -5,16 +5,16 @@ const User = require('../Models/User');
 const jwt = require('jsonwebtoken');
 router.post('', async function (req, res) {
     try {
-        let { email, password,createdBy,brandLogo } = req.body;
+        let { email, password,createrId,brandLogo } = req.body;
         let logo = ''
         
         const user = await User.findOne({ email });
-        
+
         if(user.isAdmin===false && user.isAdminPatner===false){
-            const user2 = await User.findOne({ createdBy });
+            const user2 = await User.findById({ createrId });
             logo = user2.brandLogo
         }else{
-            logo = brandLogo
+            logo = user.brandLogo
         }
         if (user && logo!=='') {
             let valid = await bcrypt.compare(password, user.password);
