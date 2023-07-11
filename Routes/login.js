@@ -5,16 +5,25 @@ const User = require('../Models/User');
 const jwt = require('jsonwebtoken');
 router.post('', async function (req, res) {
     try {
-        console.log(req.body)
-        let { email, password } = req.body;
+        let { email, password,createdBy,brandLogo } = req.body;
+        let logo = ''
+        
         const user = await User.findOne({ email });
-        console.log(user)
-        if (user) {
+
+        if(!user.isAdmin && !user.isAdminPatner){
+            const user = await User.findOne({ createdBy });
+            logo = user.brandLogo
+        }else{
+            logo = brandLogo
+        }
+
+
+        if (user && !!logo) {
             let valid = await bcrypt.compare(password, user.password);
             if (!valid) {
                 res.status(400).send("Password not matched");
             } else {
-                console.log("User loged in");
+
                 const token = jwt.sign({ _id: user._id,
                                         email: user.email, 
                                         center: user.center,
@@ -22,6 +31,8 @@ router.post('', async function (req, res) {
                                        }, 'sdiohufvhbiehhidethisthing', {
                     expiresIn: '45h'
                 });
+
+
                 res.header("auth-token", token).send({
                     token, user: {
                         username: user.username,
@@ -35,7 +46,7 @@ router.post('', async function (req, res) {
                         startDate:user.startDate,
                         expDate:user.expDate,
                         status:user.status,
-                        brandLogo:user.brandLogo,
+                        brandLogo:logo,
                         package:user.package,
                         createdBy:user.createdBy,
                         createrId:user.createrId
