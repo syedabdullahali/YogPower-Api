@@ -8,7 +8,7 @@ valiDateRouteFun(router,  packageMaster)
 
 router.post('/create', async (req, res) => {
     try {
-        const temp = await new Package(req.body)
+        const temp = await new packageMaster(req.body)
         const response = await temp.save();
         console.log(response);
         return res.status(200).json(response);
@@ -19,7 +19,7 @@ router.post('/create', async (req, res) => {
 
 router.post('/update/:id', async (req, res) => {
     try {
-        const response = await Package.findByIdAndUpdate(req.params.id, req.body);
+        const response = await packageMaster.findByIdAndUpdate(req.params.id, req.body);
         return res.status(200).json(response)
     } catch (err) {
         return res.status(500).json({ error: err })
@@ -29,7 +29,7 @@ router.post('/update/:id', async (req, res) => {
 
 router.delete('/delete/:id', async (req, res) => {
     try {
-        const response = await Package.findByIdAndDelete(req.params.id);
+        const response = await packageMaster.findByIdAndDelete(req.params.id);
         return res.status(200).json(response)
     } catch (err) {
         return res.status(500).json({ error: err })
