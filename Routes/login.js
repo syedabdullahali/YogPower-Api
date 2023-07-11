@@ -9,16 +9,14 @@ router.post('', async function (req, res) {
         let logo = ''
         
         const user = await User.findOne({ email });
-
+        
         if(user.isAdmin===false && user.isAdminPatner===false){
             const user2 = await User.findOne({ createdBy });
             logo = user2.brandLogo
         }else{
             logo = brandLogo
         }
-
-
-        if (user && !!logo) {
+        if (user && logo!=='') {
             let valid = await bcrypt.compare(password, user.password);
             if (!valid) {
                 res.status(400).send("Password not matched");
