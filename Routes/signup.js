@@ -20,7 +20,7 @@ const userValidate = require('./jwt')
     router.get('/emailId/:emailId', async function (req, res) {
         try {
             const emailId = req.params.emailId.toString().trim(); 
-            const response = await User.findById({_id:emaild)
+            const response = await User.findById({_id:emailId})
             return res.status(200).json(response);
         } catch (err) {
             return res.status(500).json({ error: err })
