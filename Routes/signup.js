@@ -128,8 +128,7 @@ router.post('/update/:email', async (req, res) => {
 
 router.patch('/update/logo/:email', async (req, res) => {
     try {
-        let {brandLogo} = req.body;
-        const response = await User.findByIdAndUpdate(req.params.email, {brandLogo});
+        const response = await User.findByIdAndUpdate(req.params.email, req.body);
         return res.status(200).json(response)
     } catch (err) {
         return res.status(500).json({ error: err })
@@ -153,8 +152,3 @@ router.delete('/delete/:id', userValidate, async (req, res) => {
 
 module.exports = router
 
-
-// https://dribbble.com/shots/20827206-eCommerce-Website-Skyrise-Decor-Landing-Page
-// https://dribbble.com/shots/21512807-eCommerce-Website-Fornic-Furniture-Interior-Landing-Page
-// https://dribbble.com/shots/21164893-Corals-Furniture-Landing-Page
-// https://dribbble.com/shots/21538030-Hem-Furniture-Brand-Website

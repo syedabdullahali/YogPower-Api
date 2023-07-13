@@ -30,6 +30,14 @@ let Users = new mongoose.Schema({
     expDate:Date,
     city:String,
     country:String,
+    profileLogo: String,
+    aboutUser:String,
+    linkInfoArr:[
+        {
+            linkName:String,
+            link:String
+        }
+    ],
     superAdminUniqId:String,
     empNameC:String,
     employeeIDC:String,
