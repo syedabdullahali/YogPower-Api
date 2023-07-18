@@ -13,7 +13,7 @@ let CompanyProfile = new mongoose.Schema({
     state: String,
     openingTime: String,
     closingTime: String,
-    workingDays: Number,
+    workingDays: String,
     halfDay: String,
     holidays: String,
     empNameC:String,

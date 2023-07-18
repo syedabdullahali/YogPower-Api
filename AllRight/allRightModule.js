@@ -580,10 +580,12 @@ let allRightModule = new mongoose.Schema({
         value:Boolean,
         items:{
             masterAllProductListingMaster:{
-                value:Boolean
+                value:Boolean,
+                rights:[]  
             },
             masterOfficeInventory:{
-                value:Boolean
+                value:Boolean,
+                rights:[]  
             }
         } 
     },
