@@ -48,6 +48,7 @@ router.post('', async function (req, res) {
                         package:user.package,
                         createdBy:user.createdBy,
                         createrId:user.createrId
+                        profileLogo:user?.profileLogo
                     }
                 });
             }
