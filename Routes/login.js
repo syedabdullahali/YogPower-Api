@@ -47,7 +47,7 @@ router.post('', async function (req, res) {
                         brandLogo:logo,
                         package:user.package,
                         createdBy:user.createdBy,
-                        createrId:user.createrId
+                        createrId:user.createrId,
                         profileLogo:user?.profileLogo
                     }
                 });
