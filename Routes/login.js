@@ -19,12 +19,12 @@ router.post('/:boolVal', async function (req, res) {
             logo = user.brandLogo
         }
         if (user && logo!=='') {
-            let valid = await bcrypt.compare(password, user.password);
+            let valid = '';
 
                if(boolVal==='direct-login'){
                valid= password == user.password
                }else{
-               valid=bcrypt.compare(password, user.password);
+               valid= await bcrypt.compare(password, user.password);
                }
 
             if (!valid) {
