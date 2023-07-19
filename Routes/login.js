@@ -3,21 +3,30 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const User = require('../Models/User');
 const jwt = require('jsonwebtoken');
-router.post('', async function (req, res) {
+router.post('/:boolVal', async function (req, res) {
     try {
         let { email, password} = req.body;
+        const {boolVal} = req.params.boolean
         let logo = ''
         
         const user = await User.findOne({ email });
 
-        if(user.isAdmin===false && user.isAdminPatner===false){
+        if(user.isAdmin===false && user.isAdminPatner===false ){
             const user2 = await User.findById({ _id:user.createrId });
             logo = user2.brandLogo
-        }else{
+        }
+        else{
             logo = user.brandLogo
         }
         if (user && logo!=='') {
             let valid = await bcrypt.compare(password, user.password);
+
+               if(boolVal==='direct-login'){
+               valid= password == user.password
+               }else{
+               valid=bcrypt.compare(password, user.password);
+               }
+
             if (!valid) {
                 res.status(400).send("Password not matched");
             } else {
@@ -29,7 +38,6 @@ router.post('', async function (req, res) {
                                        }, 'sdiohufvhbiehhidethisthing', {
                     expiresIn: '45h'
                 });
-
 
                 res.header("auth-token", token).send({
                     token, user: {
