@@ -6,10 +6,13 @@ const jwt = require('jsonwebtoken');
 router.post('/:boolVal', async function (req, res) {
     try {
         let { email, password} = req.body;
-        const {boolVal} = req.params.boolean
+        
+        const {boolVal} = req.params
         let logo = ''
         
         const user = await User.findOne({ email });
+
+        console.log(boolVal)
 
         if(user.isAdmin===false && user.isAdminPatner===false ){
             const user2 = await User.findById({ _id:user.createrId });
@@ -19,7 +22,7 @@ router.post('/:boolVal', async function (req, res) {
             logo = user.brandLogo
         }
         if (user && logo!=='') {
-            let valid = '';
+               let valid = false;
 
                if(boolVal==='direct-login'){
                valid= password == user.password
