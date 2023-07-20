@@ -35,7 +35,7 @@ function togetFilterDataNumber( enquiryData ,prospectData){
                  dataReportArr.TRIALS+=1
         }
         if(compareDate(enquiryData[index].createdAt,new Date())){
-            dataReportArr.CONVERTED+=1
+            dataReportArr.NEW+=1
         }
             
     }
@@ -45,11 +45,11 @@ function togetFilterDataNumber( enquiryData ,prospectData){
 
 
 
+
 router.get('/:startDateVal/:endDateVal/all', async function (req, res) {
     try {
         const {startDateVal,endDateVal} =  req.params
-        const enddate =  new Date(endDateVal).setDate(new Date().getDate() +1)
-        const response1 =   enquiryForm.find({createdAt:{$gte:new Date(startDateVal),$lt:enddate}})
+        const response1 =   enquiryForm.find({createdAt:{$gte:new Date(startDateVal),$lt:new Date(endDateVal)}})
         const response2 =   prospect.find({createdAt:{$gte:new Date(startDateVal),$lt:new Date(endDateVal)}})
         const allData  = await Promise.all([response1,response2])       
         return res.status(200).json(togetFilterDataNumber(allData[0],allData[1]));
@@ -60,9 +60,8 @@ router.get('/:startDateVal/:endDateVal/all', async function (req, res) {
 router.get('/:startDateVal/:endDateVal/filter-by-employee/:employeeId', async function (req, res) {
     try {
         const {startDateVal,endDateVal,employeeId} =  req.params
-        const enddate =  new Date(endDateVal).setDate(new Date().getDate() +1)
-        const response1 =   enquiryForm.find({createdAt:{$gte:new Date(startDateVal),$lt:enddate},employeeMongoId: employeeId})
-        const response2 =   prospect.find({createdAt:{$gte:new Date(startDateVal),$lt:enddate},employeeMongoId: employeeId})
+        const response1 =   enquiryForm.find({createdAt:{$gte:new Date(startDateVal),$lt:new Date(endDateVal)},employeeMongoId: employeeId})
+        const response2 =   prospect.find({createdAt:{$gte:new Date(startDateVal),$lt:new Date(endDateVal)},employeeMongoId: employeeId})
         const allData  = await Promise.all([response1,response2])       
         return res.status(200).json(togetFilterDataNumber(allData[0],allData[1]));
     } catch (err) {
@@ -72,9 +71,8 @@ router.get('/:startDateVal/:endDateVal/filter-by-employee/:employeeId', async fu
 router.get('/:startDateVal/:endDateVal/filter-by-admin/:partnerAdminId', async function (req, res) {
     try {
         const {startDateVal,endDateVal,partnerAdminId} =  req.params
-        const enddate =  new Date(endDateVal).setDate(new Date().getDate() +1)
-        const response1 =   enquiryForm.find({createdAt:{$gte:new Date(startDateVal),$lt:enddate},partnerAdminMongoId: partnerAdminId})
-        const response2 =   prospect.find({createdAt:{$gte:new Date(startDateVal),$lt:enddate},partnerAdminMongoId: partnerAdminId})
+        const response1 =   enquiryForm.find({createdAt:{$gte:new Date(startDateVal),$lt:new Date(endDateVal)},partnerAdminMongoId: partnerAdminId})
+        const response2 =   prospect.find({createdAt:{$gte:new Date(startDateVal),$lt:new Date(endDateVal)},partnerAdminMongoId: partnerAdminId})
         const allData  = await Promise.all([response1,response2])       
         return res.status(200).json(togetFilterDataNumber(allData[0],allData[1]));
     } catch (err) {
