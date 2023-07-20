@@ -140,6 +140,7 @@ app.use('/AppointmentClient', userValidate, require('./Routes/AppointmentClient'
 
 app.use('/renewedClients', userValidate, require('./Routes/renewedClients'));
 app.use('/activeClients', userValidate, require('./Routes/activeClients'));
+
 app.use('/allClients', userValidate, require('./Routes/allClients'));
 app.use('/expriryClients', userValidate, require('./Routes/expriryClients'));
 app.use('/Servicedata', userValidate, require('./Routes/Servicedata'));
@@ -219,6 +220,8 @@ app.use('/guestList',userValidate,require('./NewRoutes/guestList'))
 app.use('/dailyExpence',userValidate,require('./NewRoutes/dailyExpence'))
 app.use('/pettyCash',userValidate,require('./NewRoutes/pettyCash'))
 app.use('/packageMaster',userValidate,require('./Routes/packageMaster'))
+app.use('/leadDashBoard',userValidate,require('./DashBoard/leads'))
+
 
 
 
