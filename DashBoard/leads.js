@@ -130,9 +130,10 @@ router.get('/:startDateVal/:endDateVal/filter-by-employee/:employeeId', async fu
         const response1 =   enquiryForm.find({createdAt:{$gte:new Date(startDateVal),$lt: endDate},employeeMongoId: employeeId})
         const response2 =   prospect.find({createdAt:{$gte:new Date(startDateVal),$lt: endDate},employeeMongoId: employeeId})
         const response3 =   invoice.find({createdAt:{$gte:new Date(startDateVal),$lt: endDate},employeeMongoId: employeeId})
+        const response4 =   memberFormData.find({createdAt:{$gte:new Date(startDateVal),$lt:endDate},employeeMongoId: employeeId})
 
-        const allData  = await Promise.all([response1,response2,response3])       
-        return res.status(200).json(togetFilterDataNumber(allData[0],allData[1],allData[2]));
+        const allData  = await Promise.all([response1,response2,response3,response4])       
+        return res.status(200).json(togetFilterDataNumber(allData[0],allData[1],allData[2],allData[3]));
     } catch (err) {
         return res.status(500).json({ error: err })
     }
@@ -145,9 +146,10 @@ router.get('/:startDateVal/:endDateVal/filter-by-admin/:partnerAdminId', async f
         const response1 =   enquiryForm.find({createdAt:{$gte:new Date(startDateVal),$lt:endDate},partnerAdminMongoId: partnerAdminId})
         const response2 =   prospect.find({createdAt:{$gte:new Date(startDateVal),$lt:endDate},partnerAdminMongoId: partnerAdminId})
         const response3 =   prospect.find({createdAt:{$gte:new Date(startDateVal),$lt:endDate},partnerAdminMongoId: partnerAdminId})
-
-        const allData  = await Promise.all([response1,response2,response3])       
-        return res.status(200).json(togetFilterDataNumber(allData[0],allData[1],allData[2]));
+        const response4 =   memberFormData.find({createdAt:{$gte:new Date(startDateVal),$lt:endDate},partnerAdminMongoId: partnerAdminId})
+        
+        const allData  = await Promise.all([response1,response2,response3,response4])       
+        return res.status(200).json(togetFilterDataNumber(allData[0],allData[1],allData[2],allData[3]));
     } catch (err) {
         return res.status(500).json({ error: err })
     }
