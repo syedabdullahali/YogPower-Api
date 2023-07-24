@@ -40,38 +40,38 @@ function toHandleServiceOverview(serviceData,invoiceData){
 
 
     if(!map.has(service+'-active') && serviceData[i].status ){
-       map.set(service+'-active',initialObj)
+       map.set(service+'-active',{...initialObj,status:'active'})
      }else if(map.has(service+'-active') &&  serviceData[i].status){
-        map.set(service+'-active',{out:map.get(service+'-active').out+initialObj.out,in:map.get(service+'-active').in+initialObj.in,name:service})
+        map.set(service+'-active',{out:map.get(service+'-active').out+initialObj.out,in:map.get(service+'-active').in+initialObj.in,name:service,status:'active'})
       }
     if(!map.has(service+'-inactive') && !serviceData[i].status ){
-        map.set(service+'-inactive',initialObj)
+        map.set(service+'-inactive',{...initialObj,status:'inactive'})
     }else if(map.has(service+'-inactive') &&  !serviceData[i].status){
-        map.set(service+'-inactive',{out:map.get(service+'-inactive').out+initialObj.out,in:map.get(service+'-inactive').in+initialObj.in,name:service})
+        map.set(service+'-inactive',{out:map.get(service+'-inactive').out+initialObj.out,in:map.get(service+'-inactive').in+initialObj.in,name:service,status:'inactive'})
 
        }
      }
 
-     for(let [key,values] of map.entries()){
+     for(let [_,values] of map.values()){
        
         
         const obj = {out:values.out,in:values.in,service:values.name}
 
-        // if(key.split('-').at(-1)==='active'){
-        //  serviceOverViewObj.service.activeServiceNum+=(values.in+values.out)
-        //  serviceOverViewObj.service.activeServiceInDoorNum+=(values.in)
-        //  serviceOverViewObj.service.activeServiceOutDoorNum+=(values.out)
+        if(values.status==='active'){
+         serviceOverViewObj.service.activeServiceNum+=(values.in+values.out)
+         serviceOverViewObj.service.activeServiceInDoorNum+=(values.in)
+         serviceOverViewObj.service.activeServiceOutDoorNum+=(values.out)
 
 
-        //  serviceOverViewObj.service.activeService.push( obj )
-        // }
-        // if(key.split('-').at(-1)==='inactive'){
-            // serviceOverViewObj.service.inactiveServiceNum+=(values.in+values.out)
-            // serviceOverViewObj.service.inactiveServiceInDoorNum+=(values.in)
-            // serviceOverViewObj.service.inactiveServiceOutDoorNum+=(values.out)
+         serviceOverViewObj.service.activeService.push( obj )
+        }
+        if(values.status==='inactive'){
+            serviceOverViewObj.service.inactiveServiceNum+=(values.in+values.out)
+            serviceOverViewObj.service.inactiveServiceInDoorNum+=(values.in)
+            serviceOverViewObj.service.inactiveServiceOutDoorNum+=(values.out)
 
-            // serviceOverViewObj.service.inactiveService.push(obj)
-        //    }
+            serviceOverViewObj.service.inactiveService.push(obj)
+           }
     }
 
    const map2 = new Map()
