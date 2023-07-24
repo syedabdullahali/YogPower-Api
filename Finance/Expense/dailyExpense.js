@@ -6,7 +6,7 @@ const dailyExpenseSchema = mongoose.Schema(
             type: String,
         },
         Date: {
-            type: String,
+            type: Date,
         },
         Voucher_Number: {
             type: String,

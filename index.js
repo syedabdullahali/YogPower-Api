@@ -195,7 +195,7 @@ app.use('/ttcVideo',userValidate,require('./Routes/ttcVideo'))
 app.use('/productInvoice',userValidate,require('./Routes/productInvoice'))
 app.use('/ttcPDFDetails',userValidate,require('./Routes/ttcPDFDetails'))
 app.use('/empleaveList',userValidate,require('./Routes/empleaveList'))
-app.use('/allRight',userValidate,require('./AllRight/allRightRoute'))
+app.use('/allRight',require('./AllRight/allRightRoute'))
 app.use('/center-partner',userValidate,require('./Master/CenterPartner/centerPartnerRoute'))
 app.use('/employeeForm',userValidate,require('./Routes/employeeForm'))
 app.use('/clientSupport',userValidate,require('./NewRoutes/clientSupport'))
@@ -221,7 +221,8 @@ app.use('/dailyExpence',userValidate,require('./NewRoutes/dailyExpence'))
 app.use('/pettyCash',userValidate,require('./NewRoutes/pettyCash'))
 app.use('/packageMaster',userValidate,require('./Routes/packageMaster'))
 app.use('/leadDashBoard',userValidate,require('./DashBoard/leads'))
-
+app.use('/serviceOverview',userValidate,require('./DashBoard/serviceOverview'))
+app.use('/serviceActivity',userValidate,require('./DashBoard/serviceActivity'))
 
 
 

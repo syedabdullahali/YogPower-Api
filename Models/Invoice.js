@@ -90,7 +90,6 @@ let Invoice = new mongoose.Schema({
     centerNameC:String,
     centerCodeC:String,
     adminNameC:String,
-
 }, { timestamps: true })
 
 module.exports = mongoose.model('Invoice', Invoice);
