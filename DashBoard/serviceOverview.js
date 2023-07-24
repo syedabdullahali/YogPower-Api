@@ -32,25 +32,25 @@ function toHandleServiceOverview(serviceData,invoiceData){
 
  //+'-active'
 //+'-inactive'
-//  const map = new Map()
-//     for (const i in  serviceData){
-//     const service = serviceData[i].service_variation.trim().toLocaleLowerCase()   
+ const map = new Map()
+    for (const i in  serviceData){
+    const service = serviceData[i].service_variation.trim().toLocaleLowerCase()   
 
-//     const initialObj = serviceData[i].typeOfTrainer=== 'In door'?{out:0,in:1,name:service}:{out:1,in:0,name:service}
+    const initialObj = serviceData[i].typeOfTrainer=== 'In door'?{out:0,in:1,name:service}:{out:1,in:0,name:service}
 
 
-//     if(!map.has(service+'-active') && serviceData[i].status ){
-//        map.set(service+'-active',initialObj)
-//      }else if(map.has(service+'-active') &&  serviceData[i].status){
-//         map.set(service+'-active',{out:map.get(service+'-active').out+initialObj.out,in:map.get(service+'-active').in+initialObj.in,name:service})
-//       }
-//     if(!map.has(service+'-inactive') && !serviceData[i].status ){
-//         map.set(service+'-inactive',initialObj)
-//     }else if(map.has(service+'-inactive') &&  !serviceData[i].status){
-//         map.set(service+'-inactive',{out:map.get(service+'-inactive').out+initialObj.out,in:map.get(service+'-inactive').in+initialObj.in,name:service})
+    if(!map.has(service+'-active') && serviceData[i].status ){
+       map.set(service+'-active',initialObj)
+     }else if(map.has(service+'-active') &&  serviceData[i].status){
+        map.set(service+'-active',{out:map.get(service+'-active').out+initialObj.out,in:map.get(service+'-active').in+initialObj.in,name:service})
+      }
+    if(!map.has(service+'-inactive') && !serviceData[i].status ){
+        map.set(service+'-inactive',initialObj)
+    }else if(map.has(service+'-inactive') &&  !serviceData[i].status){
+        map.set(service+'-inactive',{out:map.get(service+'-inactive').out+initialObj.out,in:map.get(service+'-inactive').in+initialObj.in,name:service})
 
-//        }
-//      }
+       }
+     }
 
 //      for(let [key,values] of map.entries()){
        
@@ -77,7 +77,7 @@ function toHandleServiceOverview(serviceData,invoiceData){
 //    const map2 = new Map()
 
 //     for (const i in invoiceData){
-//         const serviceName= invoiceData[i].ServiceName.trim().toLocaleLowerCase()   
+//         const serviceName= invoiceData[i].ServiceName.trim().toLowerCase()   
 //         const collectedAmount = invoiceData[i].Receipts.reduce((crr,el)=>crr+ (+el.PaidAmount),0)  + invoiceData[i].paidAmount 
 
 //         if(!map2.has(serviceName)){
