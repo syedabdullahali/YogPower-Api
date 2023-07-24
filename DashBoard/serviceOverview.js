@@ -34,7 +34,7 @@ function toHandleServiceOverview(serviceData,invoiceData){
 //+'-inactive'
  const map = new Map()
     for (const i in  serviceData){
-    const service = serviceData[i].service_variation.trim().toLocaleLowerCase()   
+    const service = serviceData[i].service_variation.trim().toLowerCase()   
 
     const initialObj = serviceData[i].typeOfTrainer=== 'In door'?{out:0,in:1,name:service}:{out:1,in:0,name:service}
 
@@ -52,22 +52,25 @@ function toHandleServiceOverview(serviceData,invoiceData){
        }
      }
 
-     for(let [key1,values1] of map.entries()){
+     for(let [key,values] of map.entries()){
        
         
-        if(key1?.split('-')?.at(-1)==='active'){
-         serviceOverViewObj.service.activeServiceNum+=(values1.in+values1.out)
-         serviceOverViewObj.service.activeServiceInDoorNum+=(values1.in)
-         serviceOverViewObj.service.activeServiceOutDoorNum+=(values1.out)
+        const obj = {out:values.out,in:values.in,service:values.name}
 
-         serviceOverViewObj.service.activeService.push( {out:values1.out,in:values1.in,service:values1.name} )
+        if(key?.split('-')?.at(-1)==='active'){
+         serviceOverViewObj.service.activeServiceNum+=(values.in+values.out)
+         serviceOverViewObj.service.activeServiceInDoorNum+=(values.in)
+         serviceOverViewObj.service.activeServiceOutDoorNum+=(values.out)
+
+
+         serviceOverViewObj.service.activeService.push( obj )
         }
-        if(key1?.split('-')?.at(-1)==='inactive'){
-            serviceOverViewObj.service.inactiveServiceNum+=(values1.in+values1.out)
-            serviceOverViewObj.service.inactiveServiceInDoorNum+=(values1.in)
-            serviceOverViewObj.service.inactiveServiceOutDoorNum+=(values1.out)
+        if(key?.split('-')?.at(-1)==='inactive'){
+            serviceOverViewObj.service.inactiveServiceNum+=(values.in+values.out)
+            serviceOverViewObj.service.inactiveServiceInDoorNum+=(values.in)
+            serviceOverViewObj.service.inactiveServiceOutDoorNum+=(values.out)
 
-            serviceOverViewObj.service.inactiveService.push({out:values1.out,in:values1.in,service:values1.name})
+            serviceOverViewObj.service.inactiveService.push(obj)
            }
     }
 
