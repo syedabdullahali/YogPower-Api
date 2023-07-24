@@ -64,7 +64,7 @@ function toHandleServiceOverview(serviceData,invoiceData){
 
 
         //  serviceOverViewObj.service.activeService.push( obj )
-        }
+        // }
         // if(key.split('-').at(-1)==='inactive'){
             // serviceOverViewObj.service.inactiveServiceNum+=(values.in+values.out)
             // serviceOverViewObj.service.inactiveServiceInDoorNum+=(values.in)
