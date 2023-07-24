@@ -55,14 +55,14 @@ function toHandleServiceOverview(serviceData,invoiceData){
      for(let [key1,values1] of map.entries()){
        
         
-        if(key1.split('-').at(-1)==='active'){
+        if(key1?.split('-')?.at(-1)==='active'){
          serviceOverViewObj.service.activeServiceNum+=(values1.in+values1.out)
          serviceOverViewObj.service.activeServiceInDoorNum+=(values1.in)
          serviceOverViewObj.service.activeServiceOutDoorNum+=(values1.out)
 
          serviceOverViewObj.service.activeService.push( {out:values1.out,in:values1.in,service:values1.name} )
         }
-        if(key1.split('-').at(-1)==='inactive'){
+        if(key1?.split('-')?.at(-1)==='inactive'){
             serviceOverViewObj.service.inactiveServiceNum+=(values1.in+values1.out)
             serviceOverViewObj.service.inactiveServiceInDoorNum+=(values1.in)
             serviceOverViewObj.service.inactiveServiceOutDoorNum+=(values1.out)
