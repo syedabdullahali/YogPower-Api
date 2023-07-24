@@ -52,7 +52,7 @@ function toHandleServiceOverview(serviceData,invoiceData){
        }
      }
 
-     for(let [_,values] of map.values()){
+     for(let values of map.values()){
        
         
         const obj = {out:values.out,in:values.in,service:values.name}
