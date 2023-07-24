@@ -57,20 +57,20 @@ function toHandleServiceOverview(serviceData,invoiceData){
         
         const obj = {out:values.out,in:values.in,service:values.name}
 
-        if(key?.split('-')?.at(-1)==='active'){
-         serviceOverViewObj.service.activeServiceNum+=(values.in+values.out)
-         serviceOverViewObj.service.activeServiceInDoorNum+=(values.in)
-         serviceOverViewObj.service.activeServiceOutDoorNum+=(values.out)
+        if(key.split('-').at(-1)==='active'){
+        //  serviceOverViewObj.service.activeServiceNum+=(values.in+values.out)
+        //  serviceOverViewObj.service.activeServiceInDoorNum+=(values.in)
+        //  serviceOverViewObj.service.activeServiceOutDoorNum+=(values.out)
 
 
-         serviceOverViewObj.service.activeService.push( obj )
+        //  serviceOverViewObj.service.activeService.push( obj )
         }
-        if(key?.split('-')?.at(-1)==='inactive'){
-            serviceOverViewObj.service.inactiveServiceNum+=(values.in+values.out)
-            serviceOverViewObj.service.inactiveServiceInDoorNum+=(values.in)
-            serviceOverViewObj.service.inactiveServiceOutDoorNum+=(values.out)
+        if(key.split('-').at(-1)==='inactive'){
+            // serviceOverViewObj.service.inactiveServiceNum+=(values.in+values.out)
+            // serviceOverViewObj.service.inactiveServiceInDoorNum+=(values.in)
+            // serviceOverViewObj.service.inactiveServiceOutDoorNum+=(values.out)
 
-            serviceOverViewObj.service.inactiveService.push(obj)
+            // serviceOverViewObj.service.inactiveService.push(obj)
            }
     }
 
