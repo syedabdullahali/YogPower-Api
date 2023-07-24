@@ -128,9 +128,9 @@ function toHandleServiceActivity (memberFormData,dailyExpenseData,invoiceData,in
 
    
     const obj = {
-       memBerActivity:(map.get(year)||inittialObj),
-      dailyExpense:(map2.get(year)||inittialObj2),
-      collection:(map3.get(year)||inittialObj3)
+       memBerActivity:(map.get(year)||{ year:year, month:{...month}}),
+      dailyExpense:(map2.get(year)||{ year:year, month:{...month}}),
+      collection:(map3.get(year)||{ year:year, month:{...month}})
     }
     return  obj
 }
