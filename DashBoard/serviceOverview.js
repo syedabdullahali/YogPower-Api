@@ -52,25 +52,22 @@ function toHandleServiceOverview(serviceData,invoiceData){
        }
      }
 
-     for(let [key,values] of map.entries()){
+     for(let [key1,values1] of map.entries()){
        
         
-        const obj = {out:values.out,in:values.in,service:values.name}
+        if(key1.split('-').at(-1)==='active'){
+         serviceOverViewObj.service.activeServiceNum+=(values1.in+values1.out)
+         serviceOverViewObj.service.activeServiceInDoorNum+=(values1.in)
+         serviceOverViewObj.service.activeServiceOutDoorNum+=(values1.out)
 
-        if(key.split('-').at(-1)==='active'){
-         serviceOverViewObj.service.activeServiceNum+=(values.in+values.out)
-         serviceOverViewObj.service.activeServiceInDoorNum+=(values.in)
-         serviceOverViewObj.service.activeServiceOutDoorNum+=(values.out)
-
-
-         serviceOverViewObj.service.activeService.push( obj )
+         serviceOverViewObj.service.activeService.push( {out:values1.out,in:values1.in,service:values1.name} )
         }
-        if(key.split('-').at(-1)==='inactive'){
-            serviceOverViewObj.service.inactiveServiceNum+=(values.in+values.out)
-            serviceOverViewObj.service.inactiveServiceInDoorNum+=(values.in)
-            serviceOverViewObj.service.inactiveServiceOutDoorNum+=(values.out)
+        if(key1.split('-').at(-1)==='inactive'){
+            serviceOverViewObj.service.inactiveServiceNum+=(values1.in+values1.out)
+            serviceOverViewObj.service.inactiveServiceInDoorNum+=(values1.in)
+            serviceOverViewObj.service.inactiveServiceOutDoorNum+=(values1.out)
 
-            serviceOverViewObj.service.inactiveService.push(obj)
+            serviceOverViewObj.service.inactiveService.push({out:values1.out,in:values1.in,service:values1.name})
            }
     }
 
