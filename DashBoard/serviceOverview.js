@@ -74,27 +74,27 @@ function toHandleServiceOverview(serviceData,invoiceData){
 //            }
 //     }
 
-//    const map2 = new Map()
+   const map2 = new Map()
 
-//     for (const i in invoiceData){
-//         const serviceName= invoiceData[i].ServiceName.trim().toLowerCase()   
-//         const collectedAmount = invoiceData[i].Receipts.reduce((crr,el)=>crr+ (+el.PaidAmount),0)  + invoiceData[i].paidAmount 
+    for (const i in invoiceData){
+        const serviceName= invoiceData[i].ServiceName.trim().toLowerCase()   
+        const collectedAmount = invoiceData[i].Receipts.reduce((crr,el)=>crr+ (+el.PaidAmount),0)  + invoiceData[i].paidAmount 
 
-//         if(!map2.has(serviceName)){
-//            map2.set(serviceName,{amount:invoiceData[i].amount,colectedAmount: collectedAmount})
-//         }else if(map2.has(serviceName)){
-//             const amount2 = map2.get(serviceName).amount
-//             const collectedAmount2 = map2.get(serviceName).colectedAmount
-//             map2.set(serviceName,{amount:amount2+invoiceData[i].amount,colectedAmount: collectedAmount2+collectedAmount})
-//         }
+        if(!map2.has(serviceName)){
+           map2.set(serviceName,{amount:invoiceData[i].amount,colectedAmount: collectedAmount})
+        }else if(map2.has(serviceName)){
+            const amount2 = map2.get(serviceName).amount
+            const collectedAmount2 = map2.get(serviceName).colectedAmount
+            map2.set(serviceName,{amount:amount2+invoiceData[i].amount,colectedAmount: collectedAmount2+collectedAmount})
+        }
 
-//     }
+    }
  
 
-//     for(let [key,values] of map2.entries()){     
-//         const obj = {...values,serviceName:key}
-//         serviceOverViewObj.serviceIncome.allServiceIncomeData.push(obj)
-//     }
+    for(let [key,values] of map2.entries()){     
+        const obj = {...values,serviceName:key}
+        serviceOverViewObj.serviceIncome.allServiceIncomeData.push(obj)
+    }
 
 
     return serviceOverViewObj 
