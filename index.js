@@ -223,10 +223,10 @@ app.use('/packageMaster',userValidate,require('./Routes/packageMaster'))
 app.use('/leadDashBoard',userValidate,require('./DashBoard/leads'))
 app.use('/serviceOverview',userValidate,require('./DashBoard/serviceOverview'))
 app.use('/serviceActivity',userValidate,require('./DashBoard/serviceActivity'))
-
-
-
-
+app.use('/attendanceActivity',userValidate,require('./DashBoard/attendanceActivity'))
+app.use('/serviceActivity',userValidate,require('./DashBoard/serviceActivity'))
+app.use('/income',userValidate,require('./DashBoard/Income'))
+app.use('/profite',userValidate,require('./DashBoard/profite'))
 
 
 

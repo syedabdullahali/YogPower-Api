@@ -82,7 +82,7 @@ function togetFilterDataNumber( enquiryData ,prospectData,invoiceData,memberForm
 });
      
     memberFormData.forEach(el => {
-          if(el.status === 'active'){
+          if(el.status === 'active' && !findLeftClientFun(el) ){
             dataReportArr.client['ACTIVE']+=1
            }
            if(findRenevalClientFun(el)){
