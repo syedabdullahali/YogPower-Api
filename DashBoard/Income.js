@@ -48,6 +48,20 @@ function toHandleServiceActivity (invoiceData,inventoryData,reciptData,empLoyeeT
 
         const year = new Date(invoiceData[i]?.createdAt).getFullYear()
         const monthNum = new Date(invoiceData[i]?.createdAt).getMonth()
+        inittialObj3.month  = {
+        'January':{target:0,achived:0},
+        'February':{target:0,achived:0,},
+        'March':{target:0,achived:0, },
+        'April':{target:0,achived:0},
+        'May':{target:0,achived:0},
+        'June':{target:0,achived:0},
+        'July':{target:0, achived:0},
+        'August':{target:0,achived:0},
+        'September':{target:0,achived:0},
+        'October':{target:0,achived:0},
+        'November':{target:0,achived:0},
+        'December':{target:0,achived:0,},
+    }
         const monthName = Object.keys(inittialObj3.month)[monthNum]
 
        if(!map3.has(year)){
@@ -67,6 +81,20 @@ function toHandleServiceActivity (invoiceData,inventoryData,reciptData,empLoyeeT
 
         const year = new Date(inventoryData[i]?.Order_Date).getFullYear()
         const monthNum = new Date(inventoryData[i]?.Order_Date).getMonth()
+        inittialObj3.month  = {
+          'January':{target:0,achived:0},
+          'February':{target:0,achived:0,},
+          'March':{target:0,achived:0, },
+          'April':{target:0,achived:0},
+          'May':{target:0,achived:0},
+          'June':{target:0,achived:0},
+          'July':{target:0, achived:0},
+          'August':{target:0,achived:0},
+          'September':{target:0,achived:0},
+          'October':{target:0,achived:0},
+          'November':{target:0,achived:0},
+          'December':{target:0,achived:0,},
+      }
         const monthName = Object.keys(inittialObj3.month)[monthNum]
 
        if(!map3.has(year)){
@@ -83,6 +111,20 @@ function toHandleServiceActivity (invoiceData,inventoryData,reciptData,empLoyeeT
 
         const year = new Date(reciptData[i]?.NewSlipDate).getFullYear()
         const monthNum = new Date(reciptData[i]?.NewSlipDate).getMonth()
+        inittialObj3.month  = {
+          'January':{target:0,achived:0},
+          'February':{target:0,achived:0,},
+          'March':{target:0,achived:0, },
+          'April':{target:0,achived:0},
+          'May':{target:0,achived:0},
+          'June':{target:0,achived:0},
+          'July':{target:0, achived:0},
+          'August':{target:0,achived:0},
+          'September':{target:0,achived:0},
+          'October':{target:0,achived:0},
+          'November':{target:0,achived:0},
+          'December':{target:0,achived:0,},
+      }
         const monthName = Object.keys(inittialObj3.month)[monthNum]
 
        if(!map3.has(year)){
