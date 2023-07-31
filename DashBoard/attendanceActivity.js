@@ -57,8 +57,8 @@ return obj
         const first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
         const last = first + 6; // last day is the first day + 6
 
-        const firstday = new Date(curr.setDate(first)).toUTCString();
-        const lastday = new Date(curr.setDate(last+1)).toUTCString();
+        const firstday = new Date(curr.setDate(first));
+        const lastday = new Date(curr.setDate(last+1));
 
         const response =   clientAttentance.find({createdAt:{$gte:new Date(firstday),$lt:lastday}})
         const response1 = memberFormDataSchema.find({status:'active'})
