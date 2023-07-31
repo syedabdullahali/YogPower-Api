@@ -16,7 +16,7 @@ let Users = new mongoose.Schema({
     empName:String,
     empId:String,
     mobNo:Number,
-    MemBerId:String,
+    memBerId:String,
     createdBy:String,
     createrId:String,
     isAdmin:Boolean,
