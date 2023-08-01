@@ -9,17 +9,19 @@ router.post('/:boolVal', async function (req, res) {
         
         const {boolVal} = req.params
         let logo = ''
+        let status = false
         
         const user = await User.findOne({ email });
 
-        console.log(boolVal)
-
+        
         if(user.isAdmin===false && user.isAdminPatner===false ){
             const user2 = await User.findById({ _id:user.createrId });
             logo = user2.brandLogo
+            status = user2.status
         }
         else{
             logo = user.brandLogo
+            status = user.status
         }
         if (user && logo!=='') {
                let valid = false;
@@ -59,7 +61,8 @@ router.post('/:boolVal', async function (req, res) {
                         package:user.package,
                         createdBy:user.createdBy,
                         createrId:user.createrId,
-                        profileLogo:user?.profileLogo
+                        profileLogo:user?.profileLogo,
+                        memBerId:user?.memBerId
                     }
                 });
             }

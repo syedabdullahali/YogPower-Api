@@ -227,8 +227,8 @@ app.use('/attendanceActivity',userValidate,require('./DashBoard/attendanceActivi
 app.use('/serviceActivity',userValidate,require('./DashBoard/serviceActivity'))
 app.use('/income',userValidate,require('./DashBoard/Income'))
 app.use('/profite',userValidate,require('./DashBoard/profite'))
-
-
+app.use('/dailyTarget',userValidate,require('./DashBoard/EmpDashBoard/dailyTarget'))
+app.use('/emp-attendance',userValidate,require('./DashBoard/EmpDashBoard/empAttendance'))
 
 
 
