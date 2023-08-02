@@ -175,7 +175,7 @@ router.get('/filter-by-employee/:employeeId', async function (req, res) {
 }
 })
 
-router.get('/:year/filter-by-admin/:partnerAdminId', async function (req, res) {
+router.get('/filter-by-admin/:partnerAdminId', async function (req, res) {
     const {partnerAdminId} =  req.params
     try {
         const response1 = employeeTargetSheet.find({partnerAdminMongoId: partnerAdminId,TargetValue:'Sales Target'})
