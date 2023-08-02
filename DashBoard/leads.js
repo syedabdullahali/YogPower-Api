@@ -22,8 +22,6 @@ function togetFilterDataNumber( enquiryData ,prospectData,invoiceData,memberForm
     const compareDate  = (startDate,breakDate)=>{
         let startDate2 = new Date(startDate)
         let breakDate2 = new Date(breakDate)
-
-
     
       return   (startDate2.getFullYear() === breakDate2.getFullYear()&&
       startDate2.getMonth() === breakDate2.getMonth()&&
@@ -38,7 +36,8 @@ function togetFilterDataNumber( enquiryData ,prospectData,invoiceData,memberForm
         TRIALS:0,
         NEW:0,
         PROSPECT:prospectData.length,
-        COLD:prospectData.filter((list)=>list.CallStatus === 'Cold' ).length
+        COLD:prospectData.filter((list)=>list.CallStatus === 'Cold' ).length,
+        APPOINTMENT: enquiryData.filter((list)=>list.appointmentfor === 'Appointment').length
         },
         invoice:{
                 ['TOTAL SALES']:0,
