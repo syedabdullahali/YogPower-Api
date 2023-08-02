@@ -5,9 +5,8 @@ const employeeForm= require('../../Models/employeeForm')
 
 const router = express.Router()
 
-router.get('/all', async function (req, res) {
 
-
+const toHandleAttendanceData = (allData)=>{
     const compareDate  = (startDate,breakDate)=>{
         let startDate2 = new Date(startDate)
         let breakDate2 = new Date(breakDate)
@@ -17,30 +16,45 @@ router.get('/all', async function (req, res) {
       startDate2.getDate() === breakDate2.getDate())
     }
 
+    const obj={
+        noOfEmployee:0,
+        todayAttendedEmp:[]
+    }
+
+    obj.noOfEmployee=allData[0].length
+
+    allData[1].reduce((crr,el)=>{
+        if(!crr.includes(el.staffId)  && compareDate(el.checkDate,new Date()) ){
+          crr.push(el.staffId)  
+          obj.todayAttendedEmp.push(el)
+        } 
+        return crr
+    },[])
+    return obj
+}
 
 
+router.get('/all', async function (req, res) {
     try {
         const response =  employeeForm.find({selected:'Select'})
         const response1 =  staffAttendance.find()
-
-        const obj={
-            noOfEmployee:0,
-            todayAttendedEmp:[]
-        }
-
         const allData = await Promise.all([response,response1])
-        obj.noOfEmployee=allData[0].length
+       
+        return res.status(200).json(toHandleAttendanceData(allData));
+    } catch (err) {
+        console.log(err)
+        return res.status(500).json({ error: err })
+    }
+})
 
-        allData[1].reduce((crr,el)=>{
-            if(!crr.includes(el.staffId)  && compareDate(el.checkDate,new Date()) ){
-              crr.push(el.staffId)  
-              obj.todayAttendedEmp.push(el)
-            } 
-            return crr
-        },[])
-      
+router.get('/filter-by-admin/:partnerAdminId', async function (req, res) {
+    const {partnerAdminId} =  req.params
 
-        return res.status(200).json(obj);
+    try {
+        const response =  employeeForm.find({partnerAdminMongoId: partnerAdminId,selected:'Select'})
+        const response1 =  staffAttendance.find({partnerAdminMongoId: partnerAdminId})
+        const allData = await Promise.all([response,response1])
+        return res.status(200).json(toHandleAttendanceData(allData));
     } catch (err) {
         console.log(err)
         return res.status(500).json({ error: err })
