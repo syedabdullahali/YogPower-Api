@@ -136,13 +136,15 @@ router.get('/filter-by-admin/:partnerAdminId', async function (req, res) {
 
     try {
         const response =  batchModule.find({partnerAdminMongoId: partnerAdminId})
-        const response1 = invoice.find({partnerAdminMongoId: partnerAdminId})
-
+        const response1 = invoiceModule.find({partnerAdminMongoId: partnerAdminId})
         const allData = await Promise.all([response,response1])
+
         return res.status(200).json(toHandleServiceOverview(allData[0],allData[1]))
     } catch (err) {
         return res.status(500).json({ error: err })
     }
 })
+
+
 
 module.exports = router
