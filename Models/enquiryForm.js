@@ -50,6 +50,17 @@ let enquiryForms = new mongoose.Schema({
     centerNameC:String,
     centerCodeC:String,
     adminNameC:String,
+    PFollowupDate:String,
+    PDiscussion:String,
+    PTimeFollowp:String,       
+    PAppointmentTime: String,
+    PAppointmentDate: String,
+    PServiceName: String, 
+    PCallDate: String, 
+    PTime: String,
+    PName: String, 
+    PContact: String,
+    PEmail: String,
 }, { timestamps: true })
 
 module.exports = mongoose.model('enquiryForms', enquiryForms);
