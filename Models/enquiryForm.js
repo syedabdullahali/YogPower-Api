@@ -34,6 +34,7 @@ let enquiryForms = new mongoose.Schema({
     trialTime: String,
     Counseller: String,
     status: String,
+    identifyStage:String,
     enquirestatus:String,
     ClientReferenceName:String,
     EmployeeId:String,
