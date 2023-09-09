@@ -39,6 +39,8 @@ let Invoice = new mongoose.Schema({
     typesofdiscount:String,
     clientId:String,
     upgrade:Boolean,
+    nameOfDepositor:String,
+    depositorContact:Number,
     Receipts:[
         {
             RemainingAmount: {
@@ -80,8 +82,9 @@ let Invoice = new mongoose.Schema({
             Pay_Mode: {
                 type: String,
                 required: true
-            }
-      },
+            },
+            nameOfDepositor:String,
+            depositorContact:Number,      },
       ],
     empNameC:String,
     employeeIDC:String,

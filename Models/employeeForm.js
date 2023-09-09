@@ -49,6 +49,8 @@ let employeeForms = new mongoose.Schema({
     centerNameC:String,
     centerCodeC:String,
     adminNameC:String,
+    resumeName:String,
+    
 }, { timestamps: true })
 
 const EmployeeForm = mongoose.model('EmployeeForm', employeeForms);
