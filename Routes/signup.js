@@ -59,7 +59,14 @@ router.get('/center-patner', userValidate, async function (req, res) {
         return res.status(500).json({ error: err })
     }
 })
-
+router.get('/center', userValidate, async function (req, res) {
+    try {
+        const response = await User.find({isAdminPatner:true})
+        return res.status(200).json(response);
+    } catch (err) {
+        return res.status(500).json({ error: err })
+    }
+})
 router.post('/create', async (req, res) => {
     console.log(req.body)
     console.log(req.body.password)
