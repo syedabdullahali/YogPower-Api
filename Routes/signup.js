@@ -61,7 +61,7 @@ router.get('/center-patner', userValidate, async function (req, res) {
 })
 router.get('/center', userValidate, async function (req, res) {
     try {
-        const response = await User.find({isAdminPatner:true})
+        const response = await User.find({isEmployee:false})
         return res.status(200).json(response);
     } catch (err) {
         return res.status(500).json({ error: err })
